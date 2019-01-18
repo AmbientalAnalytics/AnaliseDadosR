@@ -18,7 +18,7 @@ See \autoref{phdcomic} section
 \ref{intro}  
 
 \newpage
-# Versionamento com GIT e GitHub  {#intro}  
+# Versionamento com Git e GitHub  {#intro}  
 
 Controle de versão (ou, versionamento) é uma forma de registrar as alterações realizadas (e a evolução) de pedaços de código/scripts/software ao longo do tempo. É comum usarmos algumas estratégias para essa mesma finalidade, como por exemplo:
   
@@ -33,7 +33,7 @@ Porém, há sempre a necessidade de versionarmos um mesmo documento de forma sin
 
 Pode ser que tais estratégias sejam úteis e suficiente para alguns trabalhos. Mas há, hoje em dia, sistemas mais interessantes para fazer o mesmo de forma robusta e até certo ponto, bem mais fácil, com a ajuda do **RStudio**.  
 
-Para o controle de versões de scripts, vamos usar o **GIT**; E para podedrmos trabalhar com outros colaboradores, vamos suar o **GitHub** (mas outros sistemas similares podem ser usados, como: *Gitlab* ou *Bitbucket*). Vamos falar sobre eles mais para frente.  
+Para o controle de versões de scripts, vamos usar o **Git**; E para podedermos trabalhar com outros colaboradores, vamos suar o **GitHub** (mas outros sistemas similares podem ser usados, como: *Gitlab* ou *Bitbucket*). Vamos falar sobre eles mais para frente.  
 
 ## Benefícios  
 
@@ -48,7 +48,7 @@ O controle de versão de seus scripts, códigos, funções e etc são importante
   
 ![git logo](./img/gitLogo.png){ width=20% }    
 
-*Git* é um sistema de versionamente criado por [Linus Torvald]() para permitir e facilitar a colaboração no desenvolvimento do [Linux](https://pt.wikipedia.org/wiki/Linux) de forma [assíncrona](https://pt.wikipedia.org/wiki/Comunica%C3%A7%C3%A3o_ass%C3%ADncrona);  
+*Git* é um sistema de versionamente criado por [Linus Torvald](https://pt.wikipedia.org/wiki/Linus_Torvalds) para permitir e facilitar a colaboração no desenvolvimento do [Linux](https://pt.wikipedia.org/wiki/Linux) de forma [assíncrona](https://pt.wikipedia.org/wiki/Comunica%C3%A7%C3%A3o_ass%C3%ADncrona);  
 A ideia é que os colaboradores de um projeto possam criar modificações e fazer testes sem comprometer a versão *estavel* do script/função/software.  
   
 ### *Git*: Instalação e configuração  
@@ -59,7 +59,7 @@ A ideia é que os colaboradores de um projeto possam criar modificações e faze
     * E-mail;  
 
 ```{bash, eval=FALSE}
-# No terminal do GIT:
+# No terminal do Git:
 git config --global user.name "Mona Lisa"
 git config --global user.name
 
@@ -68,7 +68,7 @@ git config --global user.email
 ```
   
 ### Configurando RStudio
-O *GIT* é um sistema idenpendente do *RStudio*. Ele pode ser usado através de um terminal, ou até de uma interface gráfica bem básica, chamado *GitGUI*; Contudo, já é comum que as *IDEs* (*Itegrated Development Environment*), como *RStudio*, incorporem as funcionalidades do *GIT* para permitir que façamos nosso trabalho e o controle de versão em um mesmo ambiente. 
+O *Git* é um sistema idenpendente do *RStudio*. Ele pode ser usado através de um terminal, ou até de uma interface gráfica bem básica, chamado *GitGUI*; Contudo, já é comum que as *IDEs* (*Itegrated Development Environment*), como *RStudio*, incorporem as funcionalidades do *Git* para permitir que façamos nosso trabalho e o controle de versão em um mesmo ambiente. 
 
 Para usar o *Git* no *RStudio* teremos que confirgurar-lo (\autoref{Global1}) :  
   
@@ -76,7 +76,7 @@ Para usar o *Git* no *RStudio* teremos que confirgurar-lo (\autoref{Global1}) :
 1. Clicar em *Git/SVN*;  
 1. Clicar em "*Enable version control interface for RStudio projects*";  
   
-* `r #emo::ji("warning")` Para usar o GIT no RStudio, é necessário sempre trabalhar com os projetos do RStudio;  
+* `r #emo::ji("warning")` Para usar o Git no RStudio, é necessário sempre trabalhar com os projetos do RStudio;  
 * `r #emo::ji("bulb")` Isso te obriga a trabalhar sempre com pastas específicas para cada projeto;  
 * `r #emo::ji("award")` Tenha sempre em mente: **se versiona o projeto. Por isso, não misture pastas!!** `r #emo::ji("skull")`  
 
@@ -96,7 +96,7 @@ Por isso, no script criado:
 - Criar um gráfico qualquer;  
 - Salvar o script;  
 
-### Versionando (GIT commit)  
+### Versionando (Git commit)  
 
 Agora que já temos um pedaço de código *funcional* do nosso script/projeto, vamos salvar uma primeira versão dele com *Git*:  
   
@@ -123,7 +123,7 @@ Perceba na \autoref{JanelaCommit}, a área em verde. Nela estão os comando adic
 
 O que faremos agora é de fato criar uma versão, como se fosse marcando um momento do desenvolvimento do projeto (nesse caso, do script). A esse "momento" vamos escrever uma mensagem na área "*commit message*". Esse passo é conceitualmente chamado de "*commit*". Tendo feito isso, basta executar o "*commit*" (clicar no botão).  
 
-* `r #emo::ji("warning")`  A ideia da menssagem de commit é ter um resumo do que foi feito para facilitar buscas no histórico de modificações/versões/momentos do código. Por padrão, no primeiro commit se usa como menssagem "*initial commit*", já que se trata de um "pota-pé inicial" e o mais importante é o que virá a partir desse primeiro *commit*.  
+* `r #emo::ji("warning")`  A ideia da mensagem de commit é ter um resumo do que foi feito para facilitar buscas no histórico de modificações/versões/momentos do código. Por padrão, no primeiro commit se usa como mensagem "*initial commit*", já que se trata de um "pota-pé inicial" e o mais importante é o que virá a partir desse primeiro *commit*.  
 * Ainda com relação à mensagem, como mencionado anteriormente, não há uma regra, mas vale a pena combinar como será feito, caso vc esteja trabalhando com outras pessoas. Em geral se usa até 50 caracteres; Há alguns que gostam de usar emojis `r #emo::ji("smile")`, outros não. De qq forma, se trata de definir uma convenção e segui-la. Caso ache pertinente, há vários artigos sobre como escrever boas menssagens de commit:  [aqui](https://medium.com/compass-true-north/writing-good-commit-messages-fc33af9d6321) ou [aqui](https://www.conventionalcommits.org/en/v1.0.0-beta.2/). Evite o que é apresentado na charge ( \autoref{msgCommit} ):  
 
 ![Charge ironizando as mensagens de commit pouco informativas \label{msgCommit}](./img/commit_message.png){ width=50% }  
@@ -140,9 +140,9 @@ Bom, sigamos versionando. Temos que colocar nosso arquivo na *staging* área, cr
 
 Como na maioria das coisas, não há uma definição. Mas sugere-se que sempre se faça quando houver alguma alteração significativa. Seja em correção de *bug*, criação de novas *funções*, etc. Na dúvida, pense em manter o equilíbrio: Não "commitar" a cada alteração qualquer e nem fazer grandes alteração sem commits intermediarios...  
 
-Agora que jatemos duas versões do nosso script, vamos explorar algumas funcionalidades interessantes do *Git*.  
+Agora que já temos duas versões do nosso script, vamos explorar algumas funcionalidades interessantes do *Git*.  
 
-#### GIT history  
+#### Git history  
 
 No menu *Git*, temos uma opção chamada *history*. Adivinhem?!?! Ao acessar essa opção podemos ver todo o histórico de versões criadas, as menssagens, o autor (sim, caso alguém faça alguma cagada, saberemos quem foi! :D), a data e o *SHA*. O *SHA* como se fosse um *ID* da versão. Uma forma computacional mais interessante de acessar o histórico por permitir identificar se o arquivo foi corrompido.  
 
@@ -151,7 +151,7 @@ Mas veja que bacana: Se clicarmos em uma das versões que temos, podemos ver as 
 
 \label{historico}](./img/history.png){ width=50% }  
 
-#### GIT log  
+#### Git log  
 
 Além do histórico, temos o *log*, que é bem similar ( \autoref{log1} ).  
 
@@ -179,7 +179,7 @@ Bem, todo esse temmpo estivemos trabalhando e criando versões em nossos computa
   
 * `r #emo::ji("skull")` Mas algo pode alcontecer, não?! `r #emo::ji("skull")`, nosso computador pode quebrar, ou precisarmos modificar alguma coisa quando estamos viajando sem o nosso PC ou, basta termos interesse que outras pessoas colaborem em nosso projeto.  
 
-Antes que você pense em criar seu projeto versionado em GIT numa pasta de aplicativo de nuvem (*googleDrive*, por exemplo) comento que há ferramentas melhores e mais apropriada para isso: [GitHub](github.com)  
+Antes que você pense em criar seu projeto versionado em Git numa pasta de aplicativo de nuvem (*googleDrive*, por exemplo) comento que há ferramentas melhores e mais apropriada para isso: [GitHub](github.com)  
 
 Vamos, então criar um *login* e posteriormente um **repositorio** no [GitHub](github.com).  
 
@@ -193,17 +193,19 @@ A este repositório serão enviados tudo o que estivermos versionando, o que per
 
 Vamos criar um novo repositório ( \autoref{newRepo} ):  
 
+Não é necessário criar o repositório já com em arquivo **README**. Caso o faça, Pense que, assim como falaremos na seção \ref{GitHubProjeto}, vc estará começando um repositório mais atualizado que o seu repositório local e, portanto, após seguir os passos que seguem deste tutorial, você precisará fazer um *Pull Branches* para atualizar eu repositório local (o *README* será baixado).  
+
 ![Criando novo repositório no GitHub. \label{newRepo}](./img/githubNewRepo.png){ width=50% }  
 
-### RStudio project/Github  
+### RStudio project/Github  {#GitHubProjeto}
 
-E, já qe vamos trabalhar com um repositório *remoto/virtual*, precisaremos criar um novo projeto que, além do versionamento com *Git*, vai estar *linkado* a tal repositório *remoto* do *GitHub*.  
+E, já que vamos trabalhar com um repositório *remoto/virtual*, precisaremos criar um novo projeto que, além do versionamento com *Git*, vai estar *linkado* a tal repositório *remoto* do *GitHub*.  
   
 Para isso vamos usar a opção *Version Control* ( \autoref{VersionCtrl} ):  
 
 ![Janela de criação de um novo projeto no RStudio. Para trabalhar com repositórios remotos, vamos selecionar a opção *Version Control* \label{VersionCtrl}](./img/GithubRstudio.png){ width=50% }  
 
-A seguir, selecionamos a opção GIT ( \autoref{JanelaGitSVN} ).  
+A seguir, selecionamos a opção Git ( \autoref{JanelaGitSVN} ).  
 
 > **OBS:** *SVN* é outro sistema de versionamento. Não sei muito a respeito, mas o que ouvi dizer é que se trata de um sistema antigo e muito mais "pesado" que o Git.  
 
@@ -213,7 +215,7 @@ Em seguida ( \autoref{JanelaURL} ) temos que adicionar a **url** do repositório
 
 ![Nessa janela devemos informar a URL do repositório remoto que vamos suar, além de dar um nome ao projeto e definir a pasta na qual vamos trabalhar. \label{JanelaURL}](./img/githubRstudio3.png){ width=50% }  
 
-Veja ( \autoref{OpcoesGit} ) como muda as opoes do menu *GIT*.  
+Veja ( \autoref{OpcoesGit} ) como muda as opoes do menu *Git*.  
 
 ![\label{OpcoesGit}](./img/githubRstudio.png){ width=50% }  
 
@@ -244,11 +246,60 @@ Levem em consideração que o *GitHub* é um sistema criado para versionamento d
   
 * A possibilidade de definir *bugs*, *issues*, etc;
 * Criar *milestone* par facilitar acompanhamento dos projetos;  
-  
+
+### Projeto com diferentes colaboradores  {#GitHubProjetoColaboradores}
+
+Bom, Já vimos como funciona o *Git*, como guardar nossos projetos em um repositório remoto (*GitHub*)...
+É prováve que já imaginem como será para que outros profissionais possam colaborar no mesmo projeto, não? A resposta é: pelo *GitHub*. Vamos ver como fazer isso.
+
+Considerando que vc e seus colaboradores tenham login no *GitHub*, é preciso que alguém dê o ponta-pé inicial, criando o repositório remoto. Aliás, já pode ir criando *commits* e fazendo o *Push*...
+
+A pessoa que fez isso foi o John \autoref{GitHubFork}, diretor de onde trabalhamos. 
+A Maria ( \autoref{GitHubFork} ) será colaboradora do projeto de conservação de vida silvestre. John já começou criando algumas coisas, mas vai precisar da ajuda da Maria para algumas análises estatísticas. Para poder fazer isso, Maria terá que saber qual é o repositório remoto que John criou para, a partir dele, fazer um *fork* ( \autoref{GitHubFork} )[^1]. Isso é, uma cópia idêntica (incluindo todo o histórico de modificações que John já fez), no seu *login* do *GitHub*. Isso é necessário pelo fato do repositório estar no nome do John e, por segurança, ela não terá autorização para fazer alterações.[^3]  
+
+[^3]: **Não sei se explorarei esse tema, mas é possível criar uma conta de organização e, com isso, informar os colaboradores. Dessa forma todos ficam autorizados a fazer *commits* direto no repositório da organização. Mesmo que isso não seja uma estratégia interessante.**  
+
+![Repositório do GitHub com a opção de Fork no canto superior direito  \label{GitHubFork}](./img/GitHubForkProj.png){ width=50% }  
+
+[^1]: Ateção: **Fork** e **Clone** são coisas diferentes. *Clone* é o ato de baixar uma cópia identica de um repositório remoto em seu repositório Git local (ou seja, um download); *Fork* é o ato de copiar um repositório remoto de outra pessoa ao seu login.  
+
+Uma vez realizado o *fork*, a Maria deverá fazer o *clone* ( \autoref{GitHubClone} ) para, enfim, podem trabalhar nos modificações necessárias ( \autoref{GitHubDev} ).  
+
+Feitas as modificações e os respectivos *commits* e o *Push* ( \autoref{GitHubPush} ) ao repositório remoto, Maria poderá enviar uma solicitação de *Pull request* ( \autoref{GitHubPullRequest} ), avisando ao John, que ela já fez as alterações devidas (análsis estatísticas) e que ele já podería juntar (*merge*) o repositório dela ao repositório dele.  
+
+![Exemplo de um repositório *forkado* de outro usuário \label{GitHubForked}](./img/GitHubForked.png){ width=50% }  
+
+John, como **mantenedor** (existe essa palavra?) do repositório poderá aceitar ou recusar a solicitação. Ao aceitá-la, deverá ser feito um *Pull* para que seu repositório **local** seja atualizado.  
+
+Ao fazer a solicitação do *Pull Request*, o *GitHub* irá analisar a versão mais atual de ambos repositórios e identificar se há algum conflito [^2] entre eles. Caso não haja, será possível fazer o *merge* sem grandes complicações.  
+
+[^2]: Pode haver conflito caso você tenha feito alguma alteração em um mesmo comando/linha que seu colaborador, e o sistema Git não saberá qual deverá ser considerado ou o que fazer com essa questão.  
+
+![Maria faz o *Fork* do repositório remoto do John.  \label{GitHubFork}](./img/Fork.png){ width=50% }  
+
+******  
+
+![Maria faz o *Clone* do repositório *forkado* ao seu repositório local.  \label{GitHubClone}](./img/Clone.png){ width=50% }  
+
+******  
+
+![Maria desenvolve as análisis solicitadas por John.  \label{GitHubDev}](./img/Dev.png){ width=50% }  
+
+******  
+
+![Após modificar o script de John, Maria envia suas alterações ao repositório remoto (*Push*).  \label{GitHubPush}](./img/Push.png){ width=50% }  
+
+******  
+
+![Maria solicita um *Pull Request*, indicando ao John que os repositórios remotos podem ser juntados (*Merge*).  \label{GitHubPullRequest}](./img/PullRequest.png){ width=50% }  
+
 ## Resumo  
 
-* `r #emo::ji("warning")` Versionamento/controle de versão não é para backup de arquivos!  
-* `r #emo::ji("book")` Livro: [**GIT Pro**](https://git-scm.com/book/en/v2)  
+* `r #emo::ji("warning")` Versionamento/controle de versão **não é para backup de arquivos!**  
+* *Cheat sheets*:
+    * [GitHub Training](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)  
+    * [GutHub Education](https://education.github.com/git-cheat-sheet-education.pdf)  
+* `r #emo::ji("book")` Livro: [**Git Pro**](https://git-scm.com/book/en/v2)  
 *  `r #emo::ji("book")` Outro livro: [**Happy Git and GitHub for the useR**](http://happygitwithr.com/)  
 * `r #emo::ji("sos")` [Mais informações](https://support.rstudio.com/hc/en-us/articles/200532077?version=1.1.442&mode=desktop)  
 * `r #emo::ji("sos")` [Ajuda na configuração - BootCamp](https://help.github.com/articles/set-up-git/)  

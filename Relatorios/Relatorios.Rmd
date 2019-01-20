@@ -1,0 +1,119 @@
+---
+title: "Relatorios com RMarkdown"
+date: "`r format(Sys.time(), '%d-%m-%Y')`"
+output:
+  pdf_document:
+    fig_caption: yes
+    highlight: default
+    includes:
+      in_header: ../Versionamento/standart.tex
+    number_sections: yes
+  word_document: default
+
+---
+
+# Elaboração de relatórios com RMarkdown  
+
+## Markdown  
+
+Markdown é uma linguajem simples para formatação de textos. A ideia é que aparir dessa linguagem você possa transformar seu texto em um documento de *Word*, *HTML* ou até mesmo *PDF*.
+
+## RMarkdown  
+
+O RMarkdown, é um pacote que nos possibilitar integrar a linguagem *R* com o *Markdown*. Dessa simoes junção, podemos elaborar documentos relacionados  às análises realizadas. Ou seja, ao mesmo tempo em que estamos analisando dados com R já podemos ir criando um relatório, por exemplo.  
+
+Para mais informações sobre o [RMarkdown, clique aqui](http://rmarkdown.rstudio.com).
+
+
+### Vantagens
+
+Usar o RMardown traz várias vangens, das quais cito:
+- Fomenta a reproducibilidade;  
+- Permite que mais de uma pessoa possa colaborar com o relatórios (usando *Git* e *GitHub*);  
+- Permite apresentar o código usado, caso isso seja importante;  
+- Facilita a criação e incorporaçãod e gráficos/tabelas e dados do projeto ao relatório  
+
+### Instalação
+
+Para trabalhar com o *rmarkdown*, basta instalar a biblioteca de mesmo nome:  
+```{r, eval=FALSE}
+# instalando
+# install.packages("rmarkdown")
+library(rmarkdown)
+```
+Você peceberá que outras bibliotecas tbm serão instaladas.  
+
+### Antes de começar
+
+Alguns pontos básicos:  
+  
+- A extensão usada é a *.Rmd* (*markdown* ocupa solo .md), independente do tipo de documento que se pretende criar (*HTML*, *PDF* ou *Doc*);  
+- Ao criar um documento *Rmd* novo, o mesmo terá, sempre, um exemplo (conteúdo) basico explicandoc omo usar;  
+- Em todo documento *Rmd* poderá ter três elementos:
+  - Cabeçalho de configuração (começa e termina com  - - - ) ( \autoref{configRmd} );  
+
+![Cabeçalho de cnfiguração *Rmd* \label{configRmd}](./img/CabecalhoConfig.png){ width=50%}  
+
+  - Pedaços de código (*code chunk*) (começa e terminam com   ' ' ' ) ( \autoref{codigor} );  
+
+![Exemplo de trecho de codigo *R* em um documento *Rmd* \label{codigor}](./img/CodigoR.png){ width=50%}  
+
+- O texto em sí, usando a linguajem *Markdown* para definição de título, negrito, etc ( \autoref{txtrmd} );  
+
+![Texto com sintaxe *Markdown*. Falaremos sobre as sintaxes mais pra frente. \label{txtrmd}](./img/TxtRmd.png){ width=50% }  
+
+Uma vez criado o documento com o texto e as análses feitas, o mesmo será **renderizado** e transformado em um documento no formato solicitado.  
+
+## Criação do documento
+Ao criar um novo documento *RMarkdown*, você poderá escolhar entre *HTML*, *PDF* ou *Word* ( \autoref{NewDoc} ) (veremos as outras opções que documento, como apresentações, mais à frente). Escolha o que for de sua preferencia e não se preocupe pois é possível mudar o tipo de documento, sempre que se fizer pertinente (também veremos isso mais à frente na seção \ref{} ).  
+
+![\label{NewDoc}](./img/TipoDoc.png){ width=50% }  
+
+Cada trecho de código, sempre que estiverem dentro da área delimitada para codigo r ( \autoref{codigor} ),  pode ser executado para se ter conhecimento de seu resultado. O resultado apresentado fará parte do documento final, uma vez que o mesmo seja **renderizado**.  
+
+A qualquer momento você pode **renderizar** o documento o transofmrado em *HTML*, *PDF* ou *Doc*, usando o botão *Knit*. è nesse menu que podemos mudar o formato final do documento, caso seja necessário.
+
+## Ejercício I
+  
+1. Crear un Rmarkdown y ejecutar todo el codigo;  
+1. Ejecutar el mismo codigo pero para distintos formatos;
+1. Hacer cambios en el codigo;
+1. Hacer cambios en el texto;
+1. Cambiar el titulo;  
+
+Infos general:
+===========================================================
+Se pude (y debe) adicionar nombre a cada pedazo de código:  
+Ventajas:
+- Se hace mas facil navegar por el script;
+- Identificar error;  
+
+Algunas opciones de los code chunks:
+  
+- eval = FALSE
+- include = FALSE - ejecuta pero no presenta el codigo ni los resultados;
+- echo = FALSE - No presenta el codigo pero lo ejecuta
+
+### Inline code
+
+\\\`\r min(mtcars$mpg)\\\`
+
+### Add tabela
+
+
+### Add referencias
+
+
+### add imagem
+
+
+### referencia cruzada
+
+
+### Nota de rodapé
+
+
+### Math
+
+
+### Artigo?

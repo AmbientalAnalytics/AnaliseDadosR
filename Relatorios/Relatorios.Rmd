@@ -3,13 +3,10 @@ title: "Relatorios com RMarkdown"
 date: "`r format(Sys.time(), '%d-%m-%Y')`"
 output:
   pdf_document:
-    fig_caption: yes
-    highlight: default
     includes:
       in_header: ../Versionamento/standart.tex
     number_sections: yes
   word_document: default
-
 ---
 
 # Elaboração de relatórios com RMarkdown  
@@ -24,8 +21,8 @@ O RMarkdown, é um pacote que nos possibilitar integrar a linguagem *R* com o *M
 
 Com o *RMarkdown*, pode-se também elaborar outros tipos de documentos, como apresentações. Vamos ver primeiro como elaborar documentos de texto e, mais à frente, vemos como trabalhar com apresentações.  
 
-Para mais informações sobre o [RMarkdown, clique aqui](http://rmarkdown.rstudio.com).
-
+Para mais informações sobre o [RMarkdown, clique aqui](http://rmarkdown.rstudio.com).  
+Ou até mesmo esse [super livro](https://bookdown.org/yihui/rmarkdown/).  
 
 ### Vantagens
 
@@ -45,18 +42,18 @@ library(rmarkdown)
 ```
 Você peceberá que outras bibliotecas tbm serão instaladas.  
 
-### Antes de começar
+### Antes de começar  {#AntesComecar}
 
 Alguns pontos básicos:  
   
 - A extensão usada é a *.Rmd* (*markdown* ocupa solo .md), independente do tipo de documento que se pretende criar (*HTML*, *PDF* ou *Doc*);  
 - Ao criar um documento *Rmd* novo, o mesmo terá, sempre, um exemplo (conteúdo) basico explicandoc omo usar;  
 - Em todo documento *Rmd* poderá ter três elementos:
-  - Cabeçalho de configuração (começa e termina com  - - - ) ( \autoref{configRmd} );  
+  - Cabeçalho de configuração (começa e termina com  ```---``` ) ( \autoref{configRmd} );  
 
 ![Cabeçalho de cnfiguração *Rmd* \label{configRmd}](./img/CabecalhoConfig.png){ width=50%}  
 
-  - Pedaços de código (*code chunk*) (começa e terminam com   ' ' ' ) ( \autoref{codigor} );  
+  - Pedaços de código (*code chunk*) (começa e terminam com   ``` ``` ``` ) ( \autoref{codigor} );  
 
 ![Exemplo de trecho de codigo *R* em um documento *Rmd* \label{codigor}](./img/CodigoR.png){ width=50%}  
 
@@ -64,7 +61,7 @@ Alguns pontos básicos:
 
 ![Texto com sintaxe *Markdown*. Falaremos sobre as sintaxes mais pra frente. \label{txtrmd}](./img/TxtRmd.png){ width=50% }  
 
-Uma vez criado o documento com o texto e as análses feitas, o mesmo será **renderizado**  e transformado em um documento no formato solicitado.  
+Uma vez criado o documento com o texto e as análises feitas, o mesmo será **renderizado**  e transformado em um documento no formato solicitado.  
 
 ## Criação do documento  {#CriacaoDoc}  
 
@@ -79,7 +76,9 @@ A qualquer momento você pode **renderizar** o documento o transofmrado em *HTML
 ### Exercicio I (alterando formato *output*)  {#ExI}
   
 1. Criar um *Rmarkdown* e executar-lo sem modificar nada;  
-1. Executa-lo novamente, mas dessa vez alterando o formato final pelo menu do *Knit* ( \autoref{KnitMenu} );  
+    * Perceba como está a área de configuração do seu *.Rmd*;  
+1. Execute-o novamente, mas dessa vez alterando o formato final pelo menu do *Knit* ( \autoref{KnitMenu} );  
+    - Veja novamente a área de configuração do *Rmd*. O que mudou? 
 
 ![Menu do Knit  \label{KnitMenu} ](./img/Knit.png){ width=50% }  
 
@@ -130,7 +129,7 @@ Alguns detalhes com relação a essa *label*:
 1. Não podem conter espaço;
 1. Se não houver nenhum texto após a informação da linguagem usada, será criada uma label padrão *unnamed-chunk-1*. O número final é sequencial em referencia à sequencias aos quais os trechos de código aparecem sem *label*.  
   
-### *configurações do **code chunk** *  
+### *configurações do **code chunk** *  {#codeChunkConf}
 
 Ainda tendo como referência a \autoref{DetalhesR}, vemos no segundo trecho de código a opção *echo=FALSE* logo após o texto da *label* e separado por vírgula. Se trata de uma das **várias** opções de configuração desse trecho de código.  
 
@@ -144,6 +143,23 @@ Como são muitas opções, vamos trabalhar com apenas quatro delas:
 ### Inserir *plot*  {#InserirPlot}
 
 Perceba que o segundo trecho de código do documento padrão é um simples comando ```plot(pressure)```. Isso, por sí só, faz com que o *plot* realizado seja incluido no documento final ao *renderizá-lo*.  
+
+#### Inserir legenda ao *plot*  {#InserirLegendaPlot}  
+
+Um parâmetro de configuração, não mencionado na seção anterior ( \ref{codeChunkConf} ), mas que será fundamental, caso queira inserir uma selegenda ao seu gráfico é a opção `fig.cap`. Essa opção de configuração deverá receber a string (portanto, deverá estar entre aspas) a ser exibida como legenda.
+
+**Exemplo**:  
+
+```
+\```{r, fig.cap="Gráfico de dispersão entre variável x e y."}
+plot(c(1,2,3), c(3,2,1))
+\```
+```
+
+**Resultado**:  
+```{r, fig.cap="Gráfico de dispersão entre variável x e y.", fig.height=4, fig.width=4}
+plot(c(1,2,3), c(3,2,1))
+```  
 
 ### Exercício (opções de codigo R)  
 
@@ -190,18 +206,49 @@ Das maiores fontes de erro ao inserir imagens, antecipamos:
 
 ## Referência cruzada  
 
-Por referência cruzadas entendemos a possibilidade de referir-se a imágens e seções de texto, sem termos que preocuparmo-nos com seus respectivos números, facilitando **em muit** a edição e a manutenção de nossos textos. Isso pelo fato de ambos serem sempre atualizados segundo a ordem das figuras/seções a cada *renderização*.  
+Por referência cruzadas entendemos a possibilidade de referir-se a imágens e seções de texto, sem termos que preocuparmo-nos com seus respectivos números, facilitando **em muito** a edição e a manutenção de nossos textos. Isso pelo fato de ambos serem sempre atualizados segundo a ordem das figuras/seções a cada *renderização*.  
 
-### Plot  
+### De gráfico (*plot*)  
 
-Vimos em \ref{InserirPlot} como inserir plot. Mas como usá-lo em referencia cruzada?
+Vimos em \ref{InserirPlot} como inserir um gráfico (*plot*) em nosso documento, lembram?  
 
-
-```{r PlotTest, fig.cap = "legendaaaaaa"}
-plot(c(1,2,3,4), c(1,2,3,4))
+```
+\```{r}
+plot(c(1,2,3), c(3,2,1))
+\```
 ```  
 
-imagem de teste \autoref{PlotTest} d
+E vimos como iserir leganda a ele:  
+
+```
+\```{r, fig.cap="Gráfico de dispersão entre variável x e y.""}
+plot(c(1,2,3), c(3,2,1))
+\```
+```  
+
+Mas como usá-lo em referencia cruzada?  
+
+Para criar referência cruzada com os gráficos criados através do *R*, precisaremos criar uma *label*. A *label*, assim como no caso dos *trechos de código* ( \ref{RLabels} ) deverão se um dientificador único e exclusivo para cada gráfico. Mas a *label* usada, não é a mesma que a do *code-chunk*. Por isso precisamos inserir dentro da *string* da configuração da legenda (`fig.cap`) o comando `\\label{LabelDoGrafico}` onde o texto dentro de chaves serão a *label do gráfico.  
+
+Por agora só criamos a label do gráfico. Para fazer a referência à esse gráfico em nosso texto, usaremos o comando `\ref{LabelDoGrafico}` onde quisermos referir-nos à figura.  
+
+*Exemplo*:  
+```
+\```{r s, fig.cap = "\\label{fig:plotTest}Gráfico de dispersão entre as variáveis x e y."}
+plot(c(1,2,3,4), c(1,2,3,4))
+\```
+```  
+
+> Aqui farei referência à ```\ref{fig:plotTest}``` onde vemos o gráfico de dispersão entre as variáveis x e y.  
+
+*Resultado*:  
+
+```{r s, fig.cap = "\\label{fig:plotTest}Gráfico de dispersão entre as variáveis x e y.", fig.height=4, fig.width=4}
+plot(c(1,2,3,4), c(1,2,3,4))
+```
+
+> Aqui farei referência à figura \ref{fig:plotTest} onde vemos o gráfico de dispersão entre as variáveis x e y.
+
 
 ### Imagem  
 
@@ -213,7 +260,7 @@ Vimos ainda que podemos inserir uma legenda a essa figura. Lembra?
 
 ``` ![legenda da imagem vai aqui](./caminho/para/imagem.png)```  
 
-Pois bem, se queremos fazer uma referencia a essa imagem usando a *ferramenta* de referência cruzada, basta entre os colchetes inserir uma *label* a essa mesma imagem (``` \label{LabelDessaImagem}``` ). Assim como as *labels* dos trechos de código (conforme mencionado na seção \autoref{RLabels} ), elas deverão ser como um ID e não poderão se repetir em diferentes imagens:  
+Pois bem, se queremos fazer uma referencia a essa imagem usando a *ferramenta* de referência cruzada, basta, entre os colchetes, inserir uma *label* a essa mesma imagem: (``` \label{LabelDessaImagem}``` ). Assim como as *labels* dos trechos de código (conforme mencionado na seção \autoref{RLabels} ), elas deverão ser como um ID e não poderão se repetir em diferentes imagens:  
 
 ``` ![legenda da imagem vai aqui \label{LabelDessaImagem}](./caminho/para/imagem.png)```  
 
@@ -221,26 +268,43 @@ O que fizemos até agora foi criar uma *label* para a imagem que queremos refere
 
 **Exemplo**:  
 
-> ``` ![\label{SolucaoRestauracao}](./img/RestorationAnswers.jpg) ```  
+> ``` ![O mistério da restauração foi desvendado por esta imagem. \label{SolucaoRestauracao}](./img/RestorationAnswers.jpg) ```  
 > veja a ``` \autoref{LabelDessaImagem} ``` ela é muito legal a responde todas as questões científicas sobre a restauração!  
 
 **Resultado**:  
 
-![ \label{SolucaoRestauracao}](./img/RestorationAnswers.jpg){ width=50% }  
+![O mistério da restauração foi desvendado por esta imagem. \label{SolucaoRestauracao}](./img/RestorationAnswers.jpg){ width=50% }  
 
 > veja a \autoref{SolucaoRestauracao} ela é muito legal a responde todas as questões científicas sobre a restauração!  
 
-**E quando a imagem for de um grafico gerado ???**  
-
 ### Seção  
 
-Qaundo quisermos fazer referencia a alguma seção, precisaremos criar uma label nessa seção, usando o *comando* ``` {#labelsecao} ```, para depois referenciá-la no texto usando ``` \ref{labelsecao} ```.  
-Repare que, para criar a seção, devemos inserir \# antes do texto da *label*. E no comando ```\ref{}``` a label vai sem o \#. Evite usar espaço!  
+Quando quisermos fazer referencia a alguma seção (Título, subtítulo, ...), precisaremos criar uma *label* nessa seção, usando o *comando* ``` {#labelsecao} ```, para depois referenciá-la no texto usando ``` \ref{labelsecao} ```.  
+Repare que, para criar a seção, devemos inserir \# antes do texto da *label*. E no comando ```\ref{}``` a label vai sem o \#. Outra opservação importante, não use espaço nas *labels*!  
 
 ## Nota de roda-pé
 
-Atualizar para esse sistema!^[```^[]```]  
-~~Para inserir nota de roda-pé é muito fácil. Basta inserir após o trecho que deva conter a nota ``` [^1] ```. Com isso vc está criando a "ancorargem" à nota. Ou seja está informando que alí deverá entrar um valor superescrito que estará linkado com a nota de roda-pé. E para criar a nota, basta colocar em qualquer momento do texto ``` [^1] ```: seguindo do texto de nota.~~  
+Para inserir nota de roda-pé é muito fácil, e há duas possibilidades para você escolher.  
+
+### Primeira possibilidade  {#op1}
+
+A primeira, que acredito ser a mais simples (mas não necessáriamente, mais organizada, no sentido textual) é inserindo o *comando* ao fim do trecho que deverá conter a nota: 
+``` ^[aqui dentro vai o texto da nota] ```  
+
+**Exemplo**:  
+
+> Quando lhe disserem que você não consegue, lembre-se que os grandes heróis já ouviram isso e nunca desistiram ``` ^[Frase retirada de: https://www.mundodasmensagens.com/frases-efeito/] ```.  
+ 
+**Resultado**:  
+
+> Quando lhe disserem que você não consegue, lembre-se que os grandes heróis já ouviram isso e nunca desistiram ^[Frase retirada de: https://www.mundodasmensagens.com/frases-efeito/].  
+
+Porque eu acho que talvez não seja, necessáriamento, a forma mais organizada? Pois imagine que você queira colcoar uma nota de roda-pé ao fim de uma frase que está no meio de um parágrafo. Você terá no seu *Rmd* a nota de roda-pé no meio do parágrafo. E isso pode confundir a algumas pessoas ou dificultar a leitura do paragrafo inteiro (quando não renderizado, claro).  
+Não deixe de conferir alguns pontos importantes na seção \ref{RodapeImportante}.  
+
+### Segunda possibilidade  {#op2}
+
+Outra possibilidade que nos obriga a sermaos mais cuidadosos é inseririndo após o trecho que deva conter a nota, o comando: ``` [^1] ```. Com isso vc está criando a "ancorargem" à nota de roda-pé. **Ou seja, está informando que alí deverá entrar um valor superescrito que estará linkado com a nota de roda-pé**. E para criar a nota, basta colocar em qualquer momento do texto ``` [^1]: ``` seguindo do texto de nota.~~  
 
 **Exemplo**:  
 
@@ -253,27 +317,59 @@ Atualizar para esse sistema!^[```^[]```]
 
 [^3]: Frase retirada de: https://www.mundodasmensagens.com/frases-efeito/  
 
-Pontos importantes:  
+### Pontos importantes:  {#RodapeImportante}
   
-* O valor numérico dentro do colchete não pode ser repetido (ou usado para outra nota diferente);  
-* O valor numérico dentro do colchete não precisa representar a ordem de aparição das notas! Isso facilita em muito por não exigir reescrever todos os valores de nota de roda-pé subsequentes a uma nota removida;  
+* Para a primeira opção ( \ref{op1} ) :  
+    * Perceba que não é necessário inserir um valor numérico antes, dentro ou depois dos colchetes, como se faz necessário com a segunda opção;  
+* Para a segunda opção (\ref{op2} ) :  
+    * O valor numérico dentro do colchete não pode ser repetido (ou usado para outra nota diferente);  
+    * O valor numérico dentro do colchete não precisa representar a ordem de aparição das notas! Isso facilita em muito por não exigir reescrever todos os valores de nota de roda-pé subsequentes a uma nota removida;  
 
 ## Referencias bibliográficas  
 
 ## Math
 
-## Artigo?
+Bom, graças ao *Latex*, podemos também escrever nossas equações e expressões matemáticas. E podemos fazer isso de duas formas:  
 
-### Configuração Markdown  {#MarkdownConfig}
+### *Inline*  
 
-`number_sections: yes`
+Para que a expressão seja renderizada na linha em que está sendo escrita, usamos um cifrão (`$`) ao início e outro ao fim, e entre eles a expressão matemática em linguagem *Latex*. A linguagem *Latex* não é dificil e sabendo pesquisar fica fácil escrever as expressões matemáticas e equações estatísticas. 
 
-```
-output:
-  pdf_document:
-    fig_caption: yes
-```
+**Exemplo**:  
 
-## Mais infos
+Escrevendo uma equeção inline é assim `$\sum_{n} = \pi + \sigma^2$` e o texo segue;  
 
-Markdown é um universo, juntando com as possibilidades de programaçao do R, fica maior ainda. Por isso cobri nesse documento apenas os elementos básicos para compreender como usá-los. Mas para extrair o máximo de todo esse potencial, sugiro que estude por conta própria. Só o [*sheat sheet*](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf), já é um om começo.
+**Resultado**:  
+
+Escrevendo uma equeção inline é assim $\sum_{n} = \pi + \sigma^2$ e o texo segue;  
+
+### *Em destaque*  
+
+Agora, quando necessitamos escrever uma equação ou expressão de forma que ela fique em destaque, ou não precisamos dela em nosso texto, podemos usar dois cifrões ao início e ao fim, e entre eles a equação/expressão:
+
+**Exemplo**:  
+
+Escrevendo em bloco, seria assim: `$$\sum_{n} = \pi + \sigma^2$$`  
+
+**Resultado**:  
+
+Escrevendo em bloco, seria assim: $$\sum_{n} = \pi + \sigma^2$$  
+
+## Artigo?  
+
+
+## Configuração Markdown  {#MarkdownConfig}
+
+Há vários elementos de configuração do *RMarkdown*, que poderão ser buscados pelas referencias na seção \ref{masInfos}.  
+
+### Numerar as seções/capítulos  
+
+Como vocês puderam notar, as seções do meu documento estão numeradas e a de vocês (caso esteja usando o modelo padrão), não. Caso queiram que as seções sejam numeradas, basta inserir na área de configuração do markdown (como vimos na seção \ref{AntesComecar} ) o comando: `number_sections: yes`.  
+
+## Mais infos  {#masInfos}
+
+Markdown é um universo, juntando com as possibilidades de programaçao do R, fica maior ainda. Por isso cobri nesse documento apenas os elementos básicos para compreender como usá-los. Mas para extrair o máximo de todo esse potencial, sugiro que estude por conta própria. Só o [*sheat sheet*](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf), já é um om começo.  
+
+Se quiser algo realmente interessante, veja o livro sobre [*RMarkdown*](https://bookdown.org/yihui/rmarkdown/)  
+
+Mas tem tbm vários artigos de blogs, dos quais, [esse aqui](https://jozefhajnala.gitlab.io/r/r909-rmarkdown-tips/) é bem interessante.  

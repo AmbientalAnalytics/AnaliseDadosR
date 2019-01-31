@@ -435,15 +435,9 @@ Há vários elementos de configuração do *RMarkdown*, que poderão ser buscado
 
 Como vocês puderam notar, as seções do meu documento estão numeradas e a de vocês (caso esteja usando o modelo padrão), não. Caso queiram que as seções sejam numeradas, basta inserir na área de configuração do markdown (como vimos na seção \ref{AntesComecar} ) o comando: `number_sections: yes`.  
 
-## Mais infos  {#masInfos}
+### Table of cotent  
 
-Markdown é um universo, juntando com as possibilidades de programaçao do R, fica maior ainda. Por isso cobri nesse documento apenas os elementos básicos para compreender como usá-los. Mas para extrair o máximo de todo esse potencial, sugiro que estude por conta própria. Só o [*sheat sheet*](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf), já é um om começo.  
-
-Se quiser algo realmente interessante, veja o livro sobre [*RMarkdown*](https://bookdown.org/yihui/rmarkdown/)  
-
-Mas tem tbm vários artigos de blogs, dos quais, [esse aqui](https://jozefhajnala.gitlab.io/r/r909-rmarkdown-tips/) é bem interessante.  
-
-## Table of cotent  
+Basta adicionar à configuração do *RMarkdown*:  
 
 ```
 output:
@@ -452,5 +446,14 @@ output:
     toc_depth: 4
 
 ```  
+
+
+## Mais infos  {#masInfos}
+
+Markdown é um universo, juntando com as possibilidades de programaçao do R, fica maior ainda. Por isso cobri nesse documento apenas os elementos básicos para compreender como usá-los. Mas para extrair o máximo de todo esse potencial, sugiro que estude por conta própria. Só o [*sheat sheet*](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf), já é um om começo.  
+
+Se quiser algo realmente interessante, veja o livro sobre [*RMarkdown*](https://bookdown.org/yihui/rmarkdown/)  
+
+Mas tem tbm vários artigos de blogs, dos quais, [esse aqui](https://jozefhajnala.gitlab.io/r/r909-rmarkdown-tips/) é bem interessante.  
 
 ## References {#refs}

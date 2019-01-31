@@ -287,6 +287,14 @@ O que fizemos até agora foi criar uma *label* para a imagem que queremos refere
 Quando quisermos fazer referencia a alguma seção (Título, subtítulo, ...), precisaremos criar uma *label* nessa seção, usando o *comando* ``` {#labelsecao} ```, para depois referenciá-la no texto usando ``` \ref{labelsecao} ```.  
 Repare que, para criar a seção, devemos inserir \# antes do texto da *label*. E no comando ```\ref{}``` a label vai sem o \#. Outra opservação importante, não use espaço nas *labels*!  
 
+**Exemplo**:  
+
+> Ver a seção `\ref{InserindoImagem}` para saber mais informações  
+
+**Resultado**:  
+
+> Ver a seção \ref{InserindoImagem} para saber mais informações 
+
 ## Nota de roda-pé
 
 Para inserir nota de roda-pé é muito fácil, e há duas possibilidades para você escolher.  

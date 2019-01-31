@@ -19,7 +19,7 @@ Fugir do:
 
 Introdução II
 ===========
-E para colaboração com outros pesquisadores?
+E para colaboração com outros pesquisadores?  
 Fugir dos sistemas de *nuvem* (*oneDrive*, *GoogleDrive*, *Dropbox*, etc);
 E usar o GitHub;
 
@@ -109,11 +109,14 @@ Versionando (Git commit)
 ===========
 Agora que já temos um pedaço de código *funcional* do nosso script/projeto, vamos salvar uma primeira versão dele com *Git*:  
   
-1. Vamos na opção "*commit*" presente no *menu* *Git* (\autoref{MenuGit});  
+1. Vamos na opção "*commit*" presente no *menu* *Git*;  
 
 ![No menu *Git* do *RStudio*, selecionar a opção "*commit*" \label{MenuGit}](./img/RStudioGIT.png)  
-  
+
+Versionando (Git commit) II  
+===========  
 `r emo::ji("question")` Os arquivos marcados com **interrogação** são arquivos que não estão sendo versionados pelo *Git*.  
+
 `r emo::ji("a")` Os arquivos marcados com a letra "**A**" (de "*added*") foram adicionadas ao versionamento, também chamado de *stagin area*.  
 
 Inicialmente nenhum arquivo estará sendo versionado. Precisamos informar ao sistema, qual(is) arquivo(s) será(ão) versionados.

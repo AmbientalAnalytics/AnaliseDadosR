@@ -389,9 +389,9 @@ Ha, pelo fato de o *.bib* se um doc de texto, o mesmo pode ser versionado. Outro
 
 **A qualidade da referencia se derá conforme a qualidade dos dados disponíveis e organizados no *.bib*. Ou seja, se seu gerenciador de referencias não foi capaz de identificar algumas informações do artigo, os mesmos estarão ausentes.**
 
-## Artigo?  
+## Dando cara de artigo;  
 
-Adicionando autor:
+Adicionando autor e abstract:
 ```
 author:
 - Felipe S. M. Barros

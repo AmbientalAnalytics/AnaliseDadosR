@@ -1,5 +1,7 @@
 ---
 title: "Relatorios com RMarkdown"
+author:
+- Felipe S. M. Barros
 date: "`r format(Sys.time(), '%d-%m-%Y')`"
 output:
   pdf_document:
@@ -7,6 +9,9 @@ output:
       in_header: ../Versionamento/standart.tex
     number_sections: yes
   word_document: default
+bibliography: Referencias.bib
+abstract: 
+  Foi elaborado um texto, bla, bla, bla...
 ---
 
 # Elaboração de relatórios com RMarkdown  
@@ -250,7 +255,7 @@ plot(c(1,2,3,4), c(1,2,3,4))
 > Aqui farei referência à figura \ref{fig:plotTest} onde vemos o gráfico de dispersão entre as variáveis x e y.
 
 
-### Imagem  
+### De imagem  
 
 Bom, vimos na seção \ref{InserindoImagem} como inserir uma imagem. Lembram?  
 
@@ -277,7 +282,7 @@ O que fizemos até agora foi criar uma *label* para a imagem que queremos refere
 
 > veja a \autoref{SolucaoRestauracao} ela é muito legal a responde todas as questões científicas sobre a restauração!  
 
-### Seção  
+### De seção  
 
 Quando quisermos fazer referencia a alguma seção (Título, subtítulo, ...), precisaremos criar uma *label* nessa seção, usando o *comando* ``` {#labelsecao} ```, para depois referenciá-la no texto usando ``` \ref{labelsecao} ```.  
 Repare que, para criar a seção, devemos inserir \# antes do texto da *label*. E no comando ```\ref{}``` a label vai sem o \#. Outra opservação importante, não use espaço nas *labels*!  
@@ -327,7 +332,74 @@ Outra possibilidade que nos obriga a sermaos mais cuidadosos é inseririndo apó
 
 ## Referencias bibliográficas  
 
-## Math
+Aqui começamos a fazer a transição de um simples relatória a um potencial artigo... Vamos incluir bibliografia!  
+
+Qualquer gerenciador de bibliografias (**Zotero**, **Mendeley**, etc) possibilitam extrair os artigos no formato *.bib*. Se vocês selecionarem os artigos/livros que vão usar e exportá-los como *.bib* e abri-los em um editar do texto^[editor de texto não é a mesma coisa que Word! Abra com um **notepad**], poderá ver algo assim:
+```
+@article{Akcakaya2009,
+abstract = {The World Conservation Union (IUCN) defined a set of categories for conservation status sup- ported by decision rules based on thresholds of parameters such as distributional range, population size, pop- ulation history, and risk of extinction. [...] We propose a method of dealing with uncertainty that can be applied to the current IUCN criteria without altering the rules, thresholds, or intent of these criteria. Our method propagates the uncertainty in the input parameters and assigns the evaluated spe- cies either to a single category (as the current criteria do) or to a range of plausible categories, depending on the nature and extent of uncertainties.},
+author = {Akcakaya, H Resit and Ferson, Scott and Burgman, Mark a and Keith, David a and Georgina, M and Todd, Charles R},
+doi = {10.1046/j.1523-1739.2000.99125.x},
+file = {:home/felipe/Documentos/ConsistentIUCN.pdf:pdf},
+issn = {0888-8892},
+journal = {Conservation biology},
+keywords = {Artigo pos,Revisao{\_}Intro},
+mendeley-tags = {Artigo pos,Revisao{\_}Intro},
+number = {4},
+pages = {1001--1013},
+title = {{Making Consistent IUCN Classifications under Uncertainty}},
+url = {http://onlinelibrary.wiley.com/doi/10.1046/j.1523-1739.2000.99125.x/full},
+volume = {14},
+year = {2009}
+}
+```  
+Uma vez que tenhamos exportado os artigos a serem usados para o formato *.bib* e com o arquivo na mesma pasta onde estamos trabalhando nosso texto ^[Caso o arquivo esteja em uma pasta diferentes, será necessário informar o cominho à pasta], precisaremos informar ao *Markdown* que vamos usar a opção de bibliografia e qual será o arquivo *.bib* a ser usado. Para isso, adicionaremos à confirguração do *RMarkdown* a seguinte linha: `bibliography: Referencias.bib`.  
+
+Repare como está a configuração deste documento que vc está lendo:
+```
+---
+title: "Relatorios com RMarkdown"
+date: "`r format(Sys.time(), '%d-%m-%Y')`"
+output:
+  pdf_document:
+    includes:
+      in_header: ../Versionamento/standart.tex
+    number_sections: yes
+  word_document: default
+bibliography: Referencias.bib
+---
+```
+
+Neste caso estou dizendo que o arquivo com as referências bibliográficas estão no arquivo "Referencias.bib".
+
+Tendo feito isso, agora já posso fazer as citações, da seguinte forma:  
+`[@Akcakaya2009]` = [@Akcakaya2009]  
+ou  
+`@Akcakaya2009` = @Akcakaya2009  
+Caso queiramos adicionar mais refencias:  
+`[@Akcakaya2009, @Akcakaya2009]` = [@Akcakaya2009, @Akcakaya2009]  
+ou  
+`@Akcakaya2009, @Akcakaya2009` = @Akcakaya2009, @Akcakaya2009  
+
+Legal. Até agora, já adicionamos nossa base de dados de referencias, fizemos a citação. Mas como fica a bibliografia?  
+
+Basta adicionarmos um capitulo `## References` (com qualque níve de hierarquia) e pronto! O *RMarkdown* já entenderá que nessa seção deverão constar todos e apenas aquelas referencias que constan em nosso *.bib* que tenham sido usadas. E por mais que usemos mais de uma citação para um mesmo artigo, só aparecerá uma referencia... Vai querer continuar usando o Word?  
+
+Ha, pelo fato de o *.bib* se um doc de texto, o mesmo pode ser versionado. Outros colaboradores poderão adicionar novas referencias e fazer citações e tudo será controlado por versionamento...  
+
+**A qualidade da referencia se derá conforme a qualidade dos dados disponíveis e organizados no *.bib*. Ou seja, se seu gerenciador de referencias não foi capaz de identificar algumas informações do artigo, os mesmos estarão ausentes.**
+
+## Artigo?  
+
+Adicionando autor:
+```
+author:
+- Felipe S. M. Barros
+abstract: |
+  Aqui vai o abstract
+```  
+
+## Notações matemáticas  
 
 Bom, graças ao *Latex*, podemos também escrever nossas equações e expressões matemáticas. E podemos fazer isso de duas formas:  
 
@@ -355,9 +427,6 @@ Escrevendo em bloco, seria assim: `$$\sum_{n} = \pi + \sigma^2$$`
 
 Escrevendo em bloco, seria assim: $$\sum_{n} = \pi + \sigma^2$$  
 
-## Artigo?  
-
-
 ## Configuração Markdown  {#MarkdownConfig}
 
 Há vários elementos de configuração do *RMarkdown*, que poderão ser buscados pelas referencias na seção \ref{masInfos}.  
@@ -373,3 +442,15 @@ Markdown é um universo, juntando com as possibilidades de programaçao do R, fi
 Se quiser algo realmente interessante, veja o livro sobre [*RMarkdown*](https://bookdown.org/yihui/rmarkdown/)  
 
 Mas tem tbm vários artigos de blogs, dos quais, [esse aqui](https://jozefhajnala.gitlab.io/r/r909-rmarkdown-tips/) é bem interessante.  
+
+## Table of cotent  
+
+```
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 4
+
+```  
+
+## References {#refs}

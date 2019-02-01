@@ -290,6 +290,10 @@ Ao fazer a solicitação do *Pull Request*, o *GitHub* irá analisar a versão m
 
 ![Maria solicita um *Pull Request*, indicando ao John que os repositórios remotos podem ser juntados (*Merge*).  \label{GitHubPullRequest}](./img/PullRequest.png){ width=50% }  
 
+## To do  
+Trabalhar exercício pull request
+material de update forked repo from orignal
+
 ## Resumo  
 
 * `r #emo::ji("warning")` Versionamento/controle de versão **não é para backup de arquivos!**  

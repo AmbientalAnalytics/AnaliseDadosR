@@ -14,14 +14,11 @@ output:
 
 ![Modo clássico de versionamento \label{phdcomic}](./img/phd101212s.png){ width=70% }  
 
-See \autoref{phdcomic} section
-\ref{intro}  
-
 \newpage
 # Versionamento com Git e GitHub  {#intro}  
 
 Controle de versão (ou, versionamento) é uma forma de registrar as alterações realizadas (e a evolução) de pedaços de código/scripts/software ao longo do tempo. É comum usarmos algumas estratégias para essa mesma finalidade, como por exemplo:
-  
+
 * Nomear o script que desenvolvendo com a data da ultima alteração e o autor responsável:  
 >**Tese01_06_FB.R**  
 >**Tese02_07_FB.R**  

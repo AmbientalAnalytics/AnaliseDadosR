@@ -95,7 +95,7 @@ Criando um novo projeto com Git habilitado
 1. Escolha a primeira opção "*New Directory*";
 1. Habilite a opção "*Create a git repository*";  
 
-![Habilitando a criação de um **repositório *Git* ** no novo projeto \label{ProjGIT2}](./img/CreatingProject.png)
+![Habilitando a criação de um **repositório *Git* ** no novo projeto \label{ProjGIT2}](./img/ProjectWithGit.png)
   
 Começando so trabalhos
 ===========
@@ -111,7 +111,7 @@ Agora que já temos um pedaço de código *funcional* do nosso script/projeto, v
   
 1. Vamos na opção "*commit*" presente no *menu* *Git*;  
 
-![No menu *Git* do *RStudio*, selecionar a opção "*commit*" \label{MenuGit}](./img/RStudioGIT.png)  
+![No menu *Git* do *RStudio*, selecionar a opção "*commit*" \label{MenuGit}](./img/RStudioGITMenu.png)  
 
 Versionando (Git commit) II  
 ===========  
@@ -124,18 +124,10 @@ Inicialmente nenhum arquivo estará sendo versionado. Precisamos informar ao sis
 Staging area
 =========
 
-![Janela de commit \label{JanelaCommit}](./img/commit2.png)  
+![Janela de commit \label{JanelaCommit}](./img/InicitalCommit.png)  
 
 Vamos versionar apenas o script criado anteriormente.
 Vamos marcar a caixa na coluna "*Staged*". Perceba que, ao fazê-lo, o arquivo passará a ser marcado com o ícone "**A**" mencionado anteriormente.  
-
-Staging area II
-=========
-
-![Janela de commit \label{JanelaCommit}](./img/commit2.png)  
-
-As linhas em verde estão os comando adicionados (por isso estão em verde).  
-Quando estivemos criando uma versão em um script onde houve alguma esclusão de código, a linha onde houve tal exclusão estará sinalizada em vermelho.  
 
 Git workflow
 =========
@@ -144,7 +136,27 @@ Git workflow
   
 ![Fluxo de trabalho no Git \label{GitFlow1}](./img/git_flow.png)  
   
-Commit  
+Staging area II
+=========
+
+Adicionando novas alterações:  
+
+![Janela de commit \label{JanelaCommit}](./img/Commits.png)  
+
+As linhas em verde estão os comando adicionados (por isso estão em verde).  
+Quando estivemos criando uma versão em um script onde houve alguma exclusão de código, a linha onde houve tal exclusão estará sinalizada em vermelho.  
+
+Commit II
+=========
+Vamos seguir trabalhando neste script. Agora, vamos mudar o gráfico. Adicione qualquer outra coisa ou elemento que ache interessante.  
+
+Salve o script e faça o *commit*. Perceba que a(s) linha(s) dos sctipr que tenham sido alteradas deverão estar marcada em vermelho e a modificação acrescentada, em verde. 
+
+Agora que já temos duas versões do nosso script, vamos explorar algumas funcionalidades interessantes do *Git*.  
+
+![Janela de *commit* com as ultimas alterações realizadas \label{msgCommit2}](./img/Commits.png)  
+
+Commit message  
 =========
 
 Após adicionar o(s) script(s), vamos vamos escrever uma mensagem na área "*commit message*".
@@ -159,16 +171,6 @@ Caso ache pertinente, há vários artigos sobre como escrever boas menssagens de
 
 ![Charge ironizando as mensagens de commit pouco informativas \label{msgCommit}](./img/commit_message.png)  
   
-Commit II
-=========
-Vamos seguir trabalhando neste script. Agora, vamos mudar o gráfico. Adicione qualquer outra coisa ou elemento que ache interessante.  
-
-Salve o script e faça o *commit*. Perceba que a(s) linha(s) dos sctipr que tenham sido alteradas deverão estar marcada em vermelho e a modificação acrescentada, em verde. 
-
-Agora que já temos duas versões do nosso script, vamos explorar algumas funcionalidades interessantes do *Git*.  
-
-![Janela de *commit* com as ultimas alterações realizadas \label{msgCommit2}](./img/commit4.png)  
-
 Commit (para refletir)
 =========
 

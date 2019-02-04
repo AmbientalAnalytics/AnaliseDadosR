@@ -83,9 +83,9 @@ Para usar o *Git* no *RStudio* teremos que confirgurar-lo (\autoref{Global1}) :
 
 Ao criar um novo projeto, escolha a primeira opção (\autoref{ProjGIT1}) "*New Directory*", e habilite a opção "*Create a git repository*" (\autoref{ProjGIT2})  
 
-![Criando novo projeto com controle de versão \label{ProjGIT1}](./img/GithubRstudio.png){ width=50% }  
+![Criando novo projeto com controle de versão \label{ProjGIT1}](./img/NewProjectOption.png){ width=50% }  
 
-![Habilitando a criação de um **repositório *Git* ** no novo projeto \label{ProjGIT2}](./img/CreatingProject.png){ width=50% }  
+![Habilitando a criação de um **repositório *Git* ** no novo projeto \label{ProjGIT2}](./img/ProjectWithGit.png){ width=50% }  
   
 Agora que temos um projeto de *RStudio* com o *Git* habilitado, vamos criar um script para, a partir dele explorar as funcionalidades do *Git*.
 Por isso, no script criado:  
@@ -99,7 +99,7 @@ Agora que já temos um pedaço de código *funcional* do nosso script/projeto, v
   
 1. Vamos na opção "*commit*" presente no *menu* *Git* (\autoref{MenuGit});  
 
-![No menu *Git* do *RStudio*, selecionar a opção "*commit*" \label{MenuGit}](./img/RStudioGIT.png){ width=50% }  
+![No menu *Git* do *RStudio*, selecionar a opção "*commit*" \label{MenuGit}](./img/RStudioGITMenu.png){ width=50% }  
   
 Na janela que se abre ( \autoref{JanelaCommit} ), poderemos identificar, dentre outros elementos, o script que começamos a desenvolver com um ícone associado:  
   
@@ -108,7 +108,7 @@ Na janela que se abre ( \autoref{JanelaCommit} ), poderemos identificar, dentre 
 
 Inicialmente nenhum arquivo estará sendo versionado. Precisamos informar ao sistema, qual(is) arquivo(s) será(ão) versionados.
 
-![Janela de commit \label{JanelaCommit}](./img/commit2.png){ width=60% }  
+![Janela de commit \label{JanelaCommit}](./img/InicitalCommit.png){ width=60% }  
 
 Por agora, vamos versionar apenas o script criado anteriormente. Para isso vamos necessitar marcar a caixa na coluna "*Staged*", referente ao arquivo a ser versionado. Perceba que, ao fazê-lo, o arquivo passará a ser marcado com o ícone "**A**" mencionado anteriormente.  
 
@@ -116,9 +116,9 @@ Por agora, vamos versionar apenas o script criado anteriormente. Para isso vamos
   
 ![Fluxo de trabalho no Git \label{GitFlow1}](./img/git_flow.png){ width=50% }  
   
-Perceba na \autoref{JanelaCommit}, a área em verde. Nela estão os comando adicionados (por isso estão em verde). Quando estivemos criando uma versão em um script onde houve alguma esclusão de código, a linha onde houve tal exclusão estará sinalizada em vermelho.  
+Perceba na \autoref{JanelaCommit}, a área em verde. Nela estão os comando adicionados (por isso estão em verde). Quando estivemos criando uma versão em um script onde houve alguma exclusão de código, a linha onde houve tal exclusão estará sinalizada em vermelho.  
 
-O que faremos agora é de fato criar uma versão, como se fosse marcando um momento do desenvolvimento do projeto (nesse caso, do script). A esse "momento" vamos escrever uma mensagem na área "*commit message*". Esse passo é conceitualmente chamado de "*commit*". Tendo feito isso, basta executar o "*commit*" (clicar no botão).  
+O que faremos agora é de fato criar uma versão, como se fosse marcando um momento do desenvolvimento do projeto (nesse caso, do script). A esse "momento" vamos escrever uma mensagem na área "*commit message*". Esse passo é conceitualmente chamado de "*commit*". Tendo feito isso, basta executar o "*commit*" (clicar no botão), como na \autoref{JanelaCommit}.  
 
 * `r #emo::ji("warning")`  A ideia da mensagem de commit é ter um resumo do que foi feito para facilitar buscas no histórico de modificações/versões/momentos do código. Por padrão, no primeiro commit se usa como mensagem "*initial commit*", já que se trata de um "pota-pé inicial" e o mais importante é o que virá a partir desse primeiro *commit*.  
 * Ainda com relação à mensagem, como mencionado anteriormente, não há uma regra, mas vale a pena combinar como será feito, caso vc esteja trabalhando com outras pessoas. Em geral se usa até 50 caracteres; Há alguns que gostam de usar emojis `r #emo::ji("smile")`, outros não. De qq forma, se trata de definir uma convenção e segui-la. Caso ache pertinente, há vários artigos sobre como escrever boas menssagens de commit:  [aqui](https://medium.com/compass-true-north/writing-good-commit-messages-fc33af9d6321) ou [aqui](https://www.conventionalcommits.org/en/v1.0.0-beta.2/). Evite o que é apresentado na charge ( \autoref{msgCommit} ):  
@@ -131,7 +131,7 @@ A linha do *script* que tenha sido modificada deverá estar marcada em vermelho 
 
 Bom, sigamos versionando. Temos que colocar nosso arquivo na *staging* área, criar a msg de *commit* e "comitá-la", para gerar uma versão do atual estado de nosso projeto (neste caso, *script*);  
 
-![Janela de *commit* com as ultimas alterações realizadas \label{msgCommit2}](./img/commit4.png){ width=50% }  
+![Janela de *commit* com as ultimas alterações realizadas \label{msgCommit2}](./img/Commits.png){ width=50% }  
 
 * `r #emo::ji("bulb")` Um ponto a ser considerado quando começarem a usar bastante o *Git* é: **quando fazer os commits?**  
 
@@ -143,17 +143,16 @@ Agora que já temos duas versões do nosso script, vamos explorar algumas funcio
 
 No menu *Git*, temos uma opção chamada *history*. Adivinhem?!?! Ao acessar essa opção podemos ver todo o histórico de versões criadas, as menssagens, o autor (sim, caso alguém faça alguma cagada, saberemos quem foi! :D), a data e o *SHA*. O *SHA* como se fosse um *ID* da versão. Uma forma computacional mais interessante de acessar o histórico por permitir identificar se o arquivo foi corrompido.  
 
-Mas veja que bacana: Se clicarmos em uma das versões que temos, podemos ver as alterações feitas... podemos filtrar também para buscar alguma versão em específico ( \autoref{label} ). Enfim, várias ferramentas que nos vai facilitar a vida como desenvolvedores.  
-![Janela de histórico com a versões criadas com o *Git*.   
+Mas veja que bacana: Se clicarmos em uma das versões que temos, podemos ver as alterações feitas... podemos filtrar também para buscar alguma versão em específico ( \autoref{historico} ). Enfim, várias ferramentas que nos vai facilitar a vida como desenvolvedores.  
 
-\label{historico}](./img/history.png){ width=50% }  
+![Janela de histórico com a versões criadas com o *Git* \label{historico}](./img/History.png){ width=50% }  
 
 #### Git log  
 
 Além do histórico, temos o *log*, que é bem similar ( \autoref{log1} ).  
 
 ![Janela de *log* \label{log1}](./img/log.png){ width=50% }  
-
+  
 ### Branches  
 
 Até aqui tudo bem, né? Agora vou comentar um conceito bem interessante do *Git*, **mas que não vou explorar por agora**: a possibilidade de criar *branches* de nossos projetos. A tradução literal de *branches* é *rama*... como as das árvores, que derivam de um troco principal... Já conseguiu imaginar para que serve?  
@@ -162,13 +161,35 @@ A ideia é comprometermos o mínio possível ao nosso projeto estável (por um p
 
 Então, vamos dizer que temos um projeto bem simples: um script que carrega um dado e faz um gráfico de dispersão.  
 
-Começando do começo :), ciramos o script, e fazemos a funcionalidade solicitadas: ele carrega um arquivo de dado e gera um gráfico de dispersão. Criarmos a primeira versão, que até o momento é a versão estável, já que está executando tudo o que se supõe que ele faça.
+Começando do começo :), ciramos o script, e fazemos a funcionalidade solicitadas: ele carrega um arquivo de dado e gera um gráfico de dispersão. Criamos a primeira versão, que até o momento é a versão estável, já que está executando tudo o que se supõe que ele faça.
 
-Vamos dizer que nos solicitam que o gráfico de dispersão seja colorido segundo alguma categoria presente nos dados. Para não comprometer o script estável qu temos no momento, podemos criar um *branch* (ou uma rama), na qual vamos adicionar o que nos foi solicitado: colorir o gráfico segundo as categorias. Uma vez feito isso, vamos testá-lo para ver se ele segue cumprindo com as funcionalidade anteriores e as funcionalidades adicionadas. Uma vez confirmada a qualidade da alteração, podemos juntar a rama criada ao "tronco principal" de nosso projeto (*merge*). Dessa forma, podemos ir criando as funcionalidades sem o receio de comprometer o código estável. E, claro, como tudo no processo de versionameto, podemos voltar ao ponto anterior (ou ao tronco principal) sempre que necessário.  
+Vamos dizer que nos solicitam que o gráfico de dispersão seja colorido segundo alguma categoria presente nos dados. Para não comprometer o script estável qu temos no momento, podemos criar um *branch* (ou uma rama), na qual vamos adicionar o que nos foi solicitado: colorir o gráfico segundo as categorias. Uma vez feito isso, vamos testá-lo para ver se ele segue cumprindo com as funcionalidade anteriores e as funcionalidades adicionadas. Uma vez confirmada a qualidade da alteração, podemos juntar a rama criada ao "tronco principal" de nosso projeto (a ese ato, chamamos de *merge*). Dessa forma, podemos ir criando as funcionalidades sem o receio de comprometer o código estável. E, claro, como tudo no processo de versionameto, podemos voltar ao ponto anterior (ou ao tronco principal) sempre que necessário.  
 
-Para facilitar, veja a \autoref{octopus}:  
+Para facilitar, veja a \autoref{octopus} ou \autoref{branches}:  
 
 ![Grafico explicativo sobre *branches* \label{octopus}](./img/branches_git.png){ width=60% }  
+
+![Visão conceitual de branches \label{branches}](./img/AtlassianGitbranches.png){ width=60% }    
+  
+#### Branches no RStudio
+  
+É possível criar *branches* pela interface gráfica do *RStudio*. Contudo, o precesso de *merge*, não. Devido a isso, não detalharei as várias possibilidades de trabalho com os *branches*. Apenas apresentarei como criar um e navegar entre os *branches* existentes.  
+
+Até o momento, vimos o uso do menu *GIT* que se encontra na barra de ferramentas do *RStudio*. Mas há ainda uma outra opção que é a janela *GIT* que se encontra, por padrão, alinhada às janelas de `environment`, `history` e `connections` \autoref{MenuGit2}.  
+
+![Janela de ferramenta *GIT* alinhada às janelas de `environment`, `history` e `connections`. \label{MenuGit2}](./img/RStudioGITMenu2.png){ width=50% }    
+
+No canto superior direito, há a indicação do *branch* que estamos trabalhando (*master*, neste caso - \autoref{MenuGit2}). Ao lado do nome do *branch* atual, há um ícone simbolizando uma remificação. Ao clicar nele, poderemos criar um *branch* novo ou mudar de branch, caso já existam outros \autoref{CriandoBranch}.  
+  
+![Criando um novo *branch* a partir do RStudio \label{CriandoBranch}](./img/RStudioGitBranch.png)  
+  
+Perceba na \autoref{NovaBranch} que após criar o branch, no canto superior direito, onde aparecia o nome *aster*, agora aparece o nome do novo *branch* criado (boxplot, neste caso). Para fazer alterações e commit, basta seguir o procedimento normal.
+
+![Criando versões em nova *branch* \label{NovaBranch}](./img/CommitBranchBoxPlot.png)   
+  
+Para trocar de *branch*, basta usar a mesma ferramente e, ao invés de criar um novo branch, basta selecionar o *branch* em que deseja trabalhar.   
+
+Caso seja necessário realizar um *merge*, utilize o *shell*;  
 
 ## GitHub  
 
@@ -292,7 +313,7 @@ Ao fazer a solicitação do *Pull Request*, o *GitHub* irá analisar a versão m
 
 ## To do  
 Trabalhar exercício pull request
-material de update forked repo from orignal
+material de update forked repo from orignal (https://stackoverflow.com/questions/7244321/how-do-i-update-a-github-forked-repository)
 
 ## Resumo  
 
@@ -305,3 +326,4 @@ material de update forked repo from orignal
 * `r #emo::ji("sos")` [Mais informações](https://support.rstudio.com/hc/en-us/articles/200532077?version=1.1.442&mode=desktop)  
 * `r #emo::ji("sos")` [Ajuda na configuração - BootCamp](https://help.github.com/articles/set-up-git/)  
 * https://sebastiansauer.github.io/writing_tools/  
+* [Atlassian Bitbucket Tutoriais](https://www.atlassian.com/git/tutorials)  

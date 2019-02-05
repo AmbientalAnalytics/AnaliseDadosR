@@ -4,6 +4,9 @@ author: Felipe Sodré Mendes Barros
 date: 
 autosize: true
 
+Modo clássico de versionamento
+===============
+
 ![Modo clássico de versionamento \label{phdcomic}](./img/phd101212s.png)  
 
 Introdução
@@ -30,17 +33,18 @@ As estratégias anteriores são limitadas, não garantem reproducibilidade, não
 O **RStudio**, assim como várias outras *IDEs*, já possuem ferramentas integradas ao Sistema de controle de versão *Git*, tornando muito cômodo sua adoção aos iniciantes;  
 
 Para o controle de versões de scripts, vamos usar o **Git**;  
-E para podedermos trabalhar com outros colaboradores, vamos suar o **GitHub**  
-(mas outros sistemas similares podem ser usados, como: *Gitlab* ou *Bitbucket*)
+E para podermos trabalhar com outros colaboradores, vamos suar o **GitHub**  
+Há outros sistemas similares, como: *Gitlab* ou *Bitbucket*  
 
 Benefícios  
 ===========
 O controle de versão de seus scripts, códigos, funções e etc são importantes quando:  
   
-- Vocês perceba que seu código não está produzindo o resultado após alguma modificação e vocês necessite retorná-lo ao um determinado ponto anterior;  
+- Vocês percebe que seu código não está produzindo o resultado esperado após alguma modificação e você necessita retorná-lo ao um determinado ponto anterior;  
 - Você, mesmo que sem querer, tiver excluido algum pedaço do seu código e o necessita mas já não sabe como fazê-lo novamente;  
 - Quando você deseja mostrar o que foi feito, ou quer ver o que outro(s) colaborador(es) fez (fizeram);  
-- Você quiser testar alguma modificação no código sem comprometer sua integridade; Ou quando você não tiver certeza que o que você pretende fazer vai funcionar;  
+- Você quiser testar alguma modificação no código sem comprometer sua integridade;  
+- Ou quando você não tiver certeza que o que você pretende fazer vai funcionar;  
 
 Git: do que se trata?  
 ===========
@@ -129,6 +133,14 @@ Staging area
 Vamos versionar apenas o script criado anteriormente.
 Vamos marcar a caixa na coluna "*Staged*". Perceba que, ao fazê-lo, o arquivo passará a ser marcado com o ícone "**A**" mencionado anteriormente.  
 
+Staging area II
+=========
+
+Observe, na imagem anterior:  
+
+* As linhas em verde estão os comando adicionados (por isso estão em verde).  
+* Quando estivemos criando uma versão em um script onde houve alguma exclusão de código, a linha onde houve tal exclusão estará sinalizada em vermelho.  
+
 Git workflow
 =========
 
@@ -136,45 +148,36 @@ Git workflow
   
 ![Fluxo de trabalho no Git \label{GitFlow1}](./img/git_flow.png)  
   
-Staging area II
-=========
-
-Adicionando novas alterações:  
-
-![Janela de commit \label{JanelaCommit}](./img/Commits.png)  
-
-As linhas em verde estão os comando adicionados (por isso estão em verde).  
-Quando estivemos criando uma versão em um script onde houve alguma exclusão de código, a linha onde houve tal exclusão estará sinalizada em vermelho.  
-
 Commit II
 =========
+Para criar a versão, de fato, precisamos escrever uma mensagem na área "*commit message*". Esse passo é conceitualmente chamado de "*commit*". Tendo feito isso, basta executar o "*commit*" (clicar no botão), como na \autoref{JanelaCommit}.  
+
+* `r emo::ji("warning")`  A ideia da mensagem de commit é resumir do que foi feito (inclusão de códigos, exclusão, modificações, mas de forma resumida)  
+
+![Janela de commit \label{JanelaCommit}](./img/InicitalCommit.png)  
+
+Mensagem de commit
+================
+
+![Charge ironizando as mensagens de commit pouco informativas \label{msgCommit}](./img/commit_message.png)
+
+Novos commits
+=============  
 Vamos seguir trabalhando neste script. Agora, vamos mudar o gráfico. Adicione qualquer outra coisa ou elemento que ache interessante.  
 
-Salve o script e faça o *commit*. Perceba que a(s) linha(s) dos sctipr que tenham sido alteradas deverão estar marcada em vermelho e a modificação acrescentada, em verde. 
-
-Agora que já temos duas versões do nosso script, vamos explorar algumas funcionalidades interessantes do *Git*.  
+Salve o script e faça o *commit*.
 
 ![Janela de *commit* com as ultimas alterações realizadas \label{msgCommit2}](./img/Commits.png)  
 
-Commit message  
-=========
-
-Após adicionar o(s) script(s), vamos vamos escrever uma mensagem na área "*commit message*".
-
-Tendo feito isso, basta executar o "*commit*" (clicar no botão).  
-
-* `r #emo::ji("warning")`  A ideia da mensagem de commit é ter um resumo do que foi feito para facilitar buscas no histórico de modificações/versões/momentos do código.  
-* Por padrão, no primeiro commit se usa como mensagem "*initial commit*";  
-* Ainda com relação à mensagem, sejam objetivos e claros na mensagem. Combinem com os demais colaboradores em que lingua vão escrever e etc.  
-
-Caso ache pertinente, há vários artigos sobre como escrever boas menssagens de commit:  [aqui](https://medium.com/compass-true-north/writing-good-commit-messages-fc33af9d6321) ou [aqui](https://www.conventionalcommits.org/en/v1.0.0-beta.2/). Evite o que é apresentado na charge:  
-
-![Charge ironizando as mensagens de commit pouco informativas \label{msgCommit}](./img/commit_message.png)  
-  
 Commit (para refletir)
 =========
 
 `r emo::ji("bulb")` Um ponto a ser considerado quando começarem a usar bastante o *Git* é: **quando fazer os commits?**  
+
+Seguindo
+=========
+
+Agora que já temos duas versões do nosso script, vamos explorar algumas funcionalidades interessantes do *Git*.  
 
 Git history  
 =========
@@ -183,9 +186,6 @@ No menu *Git*, temos uma opção chamada *history*.
 
 Adivinhem?!?!  
 
-Se clicarmos em uma das versões que temos, podemos ver as alterações feitas...  
-
-Enfim, várias ferramentas que nos vai facilitar a vida como desenvolvedores.  
 ![Janela de histórico com a versões criadas com o *Git*.  \label{historico}](./img/history.png)  
 
 Git log  
@@ -199,29 +199,25 @@ Branches
 
 Um conceito bem interessante do *Git*, **mas que não vou explorar por agora**: a possibilidade de criar *branches* de nossos projetos.  
 
-A tradução literal de *branches* é *rama*... como as das árvores, que derivam de um troco principal... Já conseguiu imaginar para que serve?  
+A tradução literal de *branches* é *ramo*... como as das árvores, que derivam de um troco principal... Já conseguiu imaginar para que serve? No material *PDF* há mais informações como criar e "navegar" entre os *branches*.  
 
 ![Grafico explicativo sobre *branches* \label{octopus}](./img/branches_git.png)  
 
 GitHub  
 =========  
 
-Bem, todo esse temmpo estivemos trabalhando e criando versões em nossos computadores (**Git local repository**).  
+Bem, todo esse temmpo trabalhamos e criando versões em nossos computadores (**Git local repository**).  
   
 `r emo::ji("skull")` Mas algo pode alcontecer, não?! `r emo::ji("skull")`  
 
-Antes de usar *Git* com aplicativo de nuvem (*googleDrive*, por exemplo) comento que há ferramentas melhores e mais apropriada para isso: [GitHub](github.com)  
+Antes de usar *Git* com aplicativo de nuvem (*googleDrive*, por exemplo), há ferramentas mais apropriadas: [GitHub](github.com)  
 
 Vamos, então criar um *login* e posteriormente um **repositorio** no [GitHub](github.com).  
 
 > `r #emo::ji("warning")` Pode ser *GitLab*, *BitBucket*, ou qualquer outro...  
 
-A este repositório serão enviados tudo o que estivermos versionando, o que permitirá que outros profissionais colaborem em nossos projetos ou até mesmo, em caso de incêndio, seu projeto estará são e salvo.  
-
 GitHub New repository  
 =========  
-
-Vamos criar um novo repositório:  
 
 Não é necessário criar o repositório já com em arquivo **README**.  
 
@@ -230,18 +226,15 @@ Não é necessário criar o repositório já com em arquivo **README**.
 RStudio project/Github
 =========
 
-Já que vamos trabalhar com um repositório *remoto/virtual*, precisaremos criar um novo projeto que, além do versionamento com *Git*, vai estar *linkado* a tal repositório *remoto* do *GitHub*.  
+Já que vamos trabalhar com um *repositório remoto*, precisaremos criar um novo projeto que, além do versionamento com *Git*, vai estar *linkado* a tal repositório *remoto* do *GitHub*.  
   
-Para isso vamos usar a opção *Version Control*:  
-
-![Janela de criação de um novo projeto no RStudio. Para trabalhar com repositórios remotos, vamos selecionar a opção *Version Control* \label{VersionCtrl}](./img/GithubRstudio.png)  
+![Janela de criação de um novo projeto no RStudio. Para trabalhar com repositórios remotos, vamos selecionar a opção *Version Control* \label{VersionCtrl}](./img/NewProjectOption.png)  
 
 RStudio project/Github II
 =========
 A seguir, selecionamos a opção Git:  
 
 ![Janela para definir qual sistema de versionamento será utilizado (*Git*, em nosso caso :) \label{JanelaGitSVN}](./img/githubRstudio2.png)  
-> **OBS:** *SVN* é outro sistema de versionamento. Não sei muito a respeito, mas o que ouvi dizer é que se trata de um sistema antigo e muito mais "pesado" que o Git.  
 
 RStudio project/Github II
 =========
@@ -252,7 +245,7 @@ Em seguida temos que adicionar a **url** do repositório criado anteriormente.
 RStudio project/Github III
 =========
 
-Veja como muda as opoes do menu *Git*:  
+Veja como muda as opções do menu *Git*:  
 
 ![\label{OpcoesGit}](./img/githubRstudio.png)  
 
@@ -260,7 +253,7 @@ Veja como muda as opoes do menu *Git*:
 1. *Push Branches*: serve para, após criarmos novas versões (atualizarmos nosso reporitório **local**), enviá-las ao repositório **remoto**;  
 
 RStudio project/Github (exercício)
-=========
+=========s
 
 Como exercício vaos criar várias alterações (*commits*) em um script de nosso projeto novo e vamos enviá-lo ao *gitHub*;  
 
@@ -278,6 +271,7 @@ Após realizar o *Push* ao repositório remoto do *GitHub*, o mesmo deverá cons
 
 RStudio project/Github V
 =========
+
 ![Detalhes dos commits vistos a partir do repositório remoto no *GitHub*. \label{commitGitHub2}](./img/GitHubcommits.png)  
 
 Github workflow
@@ -285,17 +279,15 @@ Github workflow
 
 ![Fluxo de trabalho com *Git* e *GitHub* \label{GitFlow2}](./img/gitFlow2.jpg)  
 
-Como comentado anteriormente, esse repositório foi criado para trabalhar com versionamento com o sistema *Git* e por isso nos oferece todas as funcionalidades existentes, como *histórico*, *log*, etc. Isso tuo além de garantir que nossos arquivos não ficarão corrompidos, o que acostuma acontecer com sistemas de nuvem...  
-
-Levem em consideração que o *GitHub* é um sistema criado para versionamento de *software*. Por isso ele possui vários elementos que não foram comentados aqui.  
-
 RStudio project/Github (exercício)
 =========
 E como faríamos para colaborar com outras pessoas nesse mesmo script?
   
 1. Criamos um repositório no GitHub, caso ainda não o tenhamos feito;  
 1. Criamos em nosso computador um projeto no RStudio para versionarmos nossos scripts e enviarmos ao repositorio remoto;
-1. Nosso colaborador deverá fazer o mesmo mas a partir do repositório clonado;
+1. Nosso colaborador deverá fazer um *fork* do nosso *repositório remoto* e cloná-lo ao seu *repositório local*;  
+1. Uma vez feitas as modificações e a sincronização com o repositório remoto, ele poderá abrir um *pull request*, para juntar suas modificações ao meu repositório remoto.
+1. Caso o *pull request* seja aceito e o repositórios juntados (*merge*), ainda será necessário sincronizá-lo com o *repositório local*. Para isso, basta fazer um *pull branches*;  
 Resumo  
 =========
 
@@ -307,3 +299,4 @@ Resumo
 * `r emo::ji("book")` Outro livro: [**Happy Git and GitHub for the useR**](http://happygitwithr.com/)  
 * `r emo::ji("sos")` [Mais informações](https://support.rstudio.com/hc/en-us/articles/200532077?version=1.1.442&mode=desktop)  
 * `r emo::ji("sos")` [Ajuda na configuração - BootCamp](https://help.github.com/articles/set-up-git/)  
+* [Atlassian Bitbucket Tutoriais](https://www.atlassian.com/git/tutorials)  

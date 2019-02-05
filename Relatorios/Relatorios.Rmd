@@ -18,49 +18,47 @@ abstract:
 
 ## Markdown  {#markdown}
 
-Markdown é uma linguajem simples para formatação de textos. A ideia é que aparir dessa linguagem você possa transformar seu texto em um documento de *Word*, *HTML* ou até mesmo *PDF*.
+*Markdown* é uma linguagem simples para formatação de textos. A ideia é que a partir dessa linguagem você possa transformar seu texto em um documento de *Word*, *HTML* ou até mesmo *PDF*, tornando a formatação do texto mais simples e **objetiva**.
 
 ## RMarkdown  {#rmarkdown}
 
-O RMarkdown, é um pacote que nos possibilitar integrar a linguagem *R* com o *Markdown*. Dessa simoes junção, podemos elaborar documentos relacionados  às análises realizadas. Ou seja, ao mesmo tempo em que estamos analisando dados com R já podemos ir criando um relatório, por exemplo.  
+O *RMarkdown*, é um pacote que nos possibilita integrar a linguagem *R* com o *Markdown*. Dessa simples junção, podemos criar documentos ao mesmo tempo em que desenvolvemos nossas análises. Ou seja, ao mesmo tempo em que estamos analisando dados com *R* já podemos ir criando um relatório, por exemplo.  
 
 Com o *RMarkdown*, pode-se também elaborar outros tipos de documentos, como apresentações. Vamos ver primeiro como elaborar documentos de texto e, mais à frente, vemos como trabalhar com apresentações.  
+  
+### Vantagens  
 
-Para mais informações sobre o [RMarkdown, clique aqui](http://rmarkdown.rstudio.com).  
-Ou até mesmo esse [super livro](https://bookdown.org/yihui/rmarkdown/).  
-
-### Vantagens
-
-Usar o RMardown traz várias vangens, das quais cito:
+Usar o *RMarkdown* traz várias vangens, das quais cito:
 - Fomenta a reproducibilidade;  
-- Permite que mais de uma pessoa possa colaborar com o relatórios (usando *Git* e *GitHub*);  
-- Permite apresentar o código usado, caso isso seja importante;  
-- Facilita a criação e incorporaçãod e gráficos/tabelas e dados do projeto ao relatório  
+- Permite que mais de uma pessoa colabore em relatórios (usando *Git* e *GitHub*);  
+- Permite apresentar o código usado, caso isso seja pretinente;  
+- Facilita a criação e incorporação de gráficos/tabelas e dados do projeto ao relatório;  
 
 ### Instalação
 
-Para trabalhar com o *rmarkdown*, basta instalar a biblioteca de mesmo nome:  
+Para trabalhar com o *RMarkdown*, basta instalar a biblioteca de mesmo nome:  
 ```{r, eval=FALSE}
 # instalando
-# install.packages("rmarkdown")
+# install.packages("rmarkdown", dependencies = TRUE)
 library(rmarkdown)
-```
+```  
+
 Você peceberá que outras bibliotecas tbm serão instaladas.  
 
 ### Antes de começar  {#AntesComecar}
 
 Alguns pontos básicos:  
   
-- A extensão usada é a *.Rmd* (*markdown* ocupa solo .md), independente do tipo de documento que se pretende criar (*HTML*, *PDF* ou *Doc*);  
-- Ao criar um documento *Rmd* novo, o mesmo terá, sempre, um exemplo (conteúdo) basico explicandoc omo usar;  
-- Em todo documento *Rmd* poderá ter três elementos:
-  - Cabeçalho de configuração (começa e termina com  ```---``` ) ( \autoref{configRmd} );  
+- A extensão do arquivo é *.Rmd* (*R* + *md* [*Markdown*]), independente do tipo de documento que se pretende criar (*HTML*, *PDF* ou *Doc*);  
+- Ao criar um documento *Rmd* novo, o mesmo terá sempre um exemplo (conteúdo) básico;  
+- Todo documento *Rmd* deverá ter três elementos:
+  - Cabeçalho de configuração *Markdown* (começa e termina com  ```---``` ) ( \autoref{configRmd} );  
 
-![Cabeçalho de cnfiguração *Rmd* \label{configRmd}](./img/CabecalhoConfig.png){ width=50%}  
+![Cabeçalho de configuração *Rmd*. \label{configRmd}](./img/CabecalhoConfig.png){ width=50%}  
 
   - Pedaços de código (*code chunk*) (começa e terminam com   ``` ``` ``` ) ( \autoref{codigor} );  
 
-![Exemplo de trecho de codigo *R* em um documento *Rmd* \label{codigor}](./img/CodigoR.png){ width=50%}  
+![Exemplo de trecho de codigo *R* em um documento *Rmd*. \label{codigor}](./img/CodigoR.png){ width=50%}  
 
 - O texto em sí, usando a linguajem *Markdown* para definição de título, negrito, etc ( \autoref{txtrmd} );  
 
@@ -68,15 +66,17 @@ Alguns pontos básicos:
 
 Uma vez criado o documento com o texto e as análises feitas, o mesmo será **renderizado**  e transformado em um documento no formato solicitado.  
 
+> **Infelizmente alguns recursos mostrados nesse documento funcionam apenas para a renderização em PDF;**  
+
 ## Criação do documento  {#CriacaoDoc}  
 
-Ao criar um novo documento *Rmd*, você poderá escolhar entre *HTML*, *PDF* ou *Word* ( \autoref{NewDoc} ). Escolha o que for de sua preferencia e não se preocupe pois é possível mudar o tipo de documento, sempre que se fizer pertinente (também veremos isso mais à frente na seção \ref{ExI} ).  
+Ao criar um novo documento *Rmd*, você poderá escolher entre *HTML*, *PDF* ou *Word* ( \autoref{NewDoc} ). Escolha o que for de sua preferencia e **não se preocupe pois é possível mudar o tipo de documento**, sempre que se fizer pertinente (também veremos isso mais à frente na seção \ref{ExI} ).  
 
 ![Criando um novo documento *Rmarkdown* (*\*.Rmd*) \label{NewDoc}](./img/TipoDoc.png){ width=50% }  
 
 Cada trecho de código, sempre que estiverem dentro da área delimitada para codigo r ( \autoref{codigor} ),  pode ser executado para se ter conhecimento de seu resultado. O resultado apresentado fará parte do documento final, uma vez que o mesmo seja **renderizado**.  
 
-A qualquer momento você pode **renderizar** o documento o transofmrado em *HTML*, *PDF* ou *Doc*, usando o botão *Knit*. è nesse menu que podemos mudar o formato final do documento, caso seja necessário.  
+A qualquer momento você pode **renderizar** o documento o transofmrado em *HTML*, *PDF* ou *Doc*, usando o botão *Knit*. E nesse menu que podemos mudar o formato final do documento, caso seja necessário.  
 
 ### Exercicio I (alterando formato *output*)  {#ExI}
   
@@ -89,15 +89,15 @@ A qualquer momento você pode **renderizar** o documento o transofmrado em *HTML
 
 ## Sintaxe Markdown  {#SintaxeMarkdown}
 
-Como mencionado anteriormente, ao usar um arquivo *\*.Rmd* temos a possibilidade de mesclar a linguagem de formatação de texto *Markdown* com códigos R. Vamos começar entendendo a sintaxe *Markdown*.  
+Como mencionado anteriormente, ao usar um arquivo *\*.Rmd* temos a possibilidade de mesclar a linguagem de formatação de texto *Markdown* com códigos *R*. Vamos começar entendendo a sintaxe *Markdown*.  
 
 A sintaxe *Markdown* é toda relacionada à **formatação de texto**. Como vocês puderam observar ao *renderizar* o documento padrão (exercício anterior), o símbolo \#\# define que naquela linha estará o texto com um título de segunda ordem no nível hierarquico, já que o título de primeira ordem seria definido com apenas um \#. A hierarquia de títulos é, portanto, definida pela sequência de \#. Por exemplo, na figura \autoref{txtrmd}:  
   
 * O texto "Elaboração de relatórios com RMarkdown" será o título do documento, por possuir apenas um \#.
-* Logo em seguida, será incluído um título de segunda hierarquia (subtítulo ?) com texto "Markdown" (já que o mesmo é precedido por dois \#).  
+* Logo em seguida, será incluído um título de segunda hierarquia (subtítulo) com texto "Markdown" (já que o mesmo é precedido por dois \#).  
 * A sequencia segue até satisfazer o nível hierarquico de títulos do seu documento;  
 
-Uma coisa bem legal desse sistema de formatação de texto é que, por ser declarativo por texto (ou comando em sintaxe *Markdown*), fica fácil colaborar com outras pessoas sem perder as configurações, além de deixar claro a estrutura do texto. Claro, isso desde que sempre se edite o arquivo *Rmd.* Caso contrário isso dependerá dos conhecimentos dos usuários de softwares de eedição de texto, como o *MS Word*.  
+Uma coisa bem legal desse sistema de formatação de texto é que, **por ser declarativo por texto (ou comando em sintaxe *Markdown*), fica fácil colaborar com outras pessoas sem perder as configurações**, além de deixar claro a estrutura do texto. Isso desde que sempre se edite o arquivo *Rmd.* Caso contrário isso dependerá dos conhecimentos dos usuários de softwares de eedição de texto, como o *MS Word*.  
 
 Outros elementos importantes para formatação de texto são:  
   
@@ -105,17 +105,19 @@ Outros elementos importantes para formatação de texto são:
 * *Itálico*: Similar ao **negrito**, mas usa-se apenas um asterístico no início e outro no fim (ex.: \*trecho em italico\*).  
 * ~~riscado~~: Basta inserir dois tis (\~\~) ao início e outros dois ao fim do trecho a ser riscado (ex.: \~\~trecho riscado\~\~);  
 
-Pontos importantes:  
+**Pontos importantes**:  
 
-Os elementos de formatação de texto, comom **negrito**, *italico*, ~~riscado~~, dentre outros, deverão ser seguidos por texto, sem espaço entre o elemento de formatação e o texto a ser aplicado a formatação. Contudo, já com relação aos títulos, é necessário dar espaço entre o \# e o texto a receber a formatação de titulo.  
+> Os elementos de formatação de texto, como **negrito**, *italico*, ~~riscado~~, dentre outros, deverão ser seguidos por texto, sem espaço entre o elemento de formatação e o texto a ser formatado. Contudo, já com relação aos títulos, é necessário dar espaço entre o \# e o texto a receber a formatação de titulo.  
 
 ### Exercício II (Sintaxe markdown)  
   
 1. Colocar todo o primeiro parágrado como riscado;
 1. Colcoar algumas paravras em **negrito**;  
 1. Colocar outras palavras em *intálico*;  
-1. Alterar a hierarquia dos títulos;
+1. Alterar a hierarquia dos títulos;  
 1. Cria um novo título de primeira hierarquia;  
+1. Renderize em formato *PDF*. Analise o indice do documento. Obedeceu a hierarquia definida?  
+1. Renderize em formato *.doc*. Analise o indice do documento. Obedeceu a hierarquia definida?  
 
 ## Trabalhando com códigos R  {#TrechoR}
 
@@ -123,7 +125,7 @@ Já vimos como identificar e inserir código *R* em nosso documento de texto. Vi
 
 ![ \label{DetalhesR} ](./img/DetalhesCodigoR.png)
 
-Após inserir o padrão que delimita um trecho de código *R* em nosso documento, vemos que entre chaves temos vários elementos... Vamos explorá-los!  
+Após inserir o padrão que delimita um trecho de código *R* em nosso documento, vemos que dentro das chaves temos vários elementos... Vamos explorá-los!  
 
 ### *labels*  {#RLabels}
 
@@ -132,7 +134,7 @@ Na \autoref{DetalhesR} vemos, logo após a linguagem que estamos trabalhando (*r
 Alguns detalhes com relação a essa *label*:  
   
 1. Não podem conter espaço;
-1. Se não houver nenhum texto após a informação da linguagem usada, será criada uma label padrão *unnamed-chunk-1*. O número final é sequencial em referencia à sequencias aos quais os trechos de código aparecem sem *label*.  
+1. Quando não informada, será criada uma label padrão *unnamed-chunk-1*. O número final é sequencial em referencia à sequencias aos quais os trechos de código aparecem sem *label*.  
   
 ### *configurações do **code chunk** *  {#codeChunkConf}
 
@@ -141,13 +143,13 @@ Ainda tendo como referência a \autoref{DetalhesR}, vemos no segundo trecho de c
 Como são muitas opções, vamos trabalhar com apenas quatro delas:
   
 1. *echo*: Dever conter valor *TRUE/FALSE* e define se o texto do código inserido deverá constar no texto do documento. Por padrão está definida como *TRUE*, já que se usa muito o *RMarkdown* para fins didáticos, onde se tem interesse de motrar o código usado e o resultado do código.  
-1. *eval*: Também definido como *TRUE/FALSE*, define e o trecho de código deverá ser executado. Como padrão está definido como *TRUE*. Pode parecer estranho e existencia/necessidade dessa opao. Afina, porque necessitaríamos um trecho de código se não for para executá-lo? Pense num exemplo: você está criando um documento mostrando como funciona o comando de instalação de bibliotecas ("install.packages(ggplot)", por exemplo). Se você não anterar o *eval* para *FALSE*, sempre que você *renderizar* seu documento ele fará a instalação da biblioteca. É o que queremos? Imagino que não...  
-1. *include*: Definido por padrão como *TRUE*, define se o trecho de código, **que será executado** apresentará no texto do documento seus resultados, mensagens e avisos (*warnings*); Também parece sem sentido? Vamos a um exemplo: Queremos, em algum momento salta o determinado aquivo em *.csv*. Mas não precisamos ter isso no exposto em nosso texto final, então podemos usar essa opção e, sem precisar mechar em vários opções já desabilitar qualquer tipo de mensagem relacionado a essa tarefa ao mesmo tempo que grantimos que a mesma seja executada.  
-1. *fig.width*: Vimos na \autoref{DetalhesR} que podemos inserir um gráfico direto ao nosso documento sem a necessidade de salva-lo como uma figura e depois insri-lo ao texto. Contudo, como faríamos para ajustar o  tamanho do gráfico? Para isso serve as opções *fig.width* e *fig.heigth*. Essas opções devem ser seguidas de um valor numérico (exemplo, *fig.width = 7*) representando o tamanho de largura/altura da figura em *inches*;  
+1. *eval*: Também definido como *TRUE/FALSE*, define se o trecho de código deverá ser executado. Como padrão está definido como *TRUE*. Pode parecer estranho a existencia/necessidade dessa opção. Afinal, porque necessitaríamos um trecho de código se não for para executá-lo? Pense num exemplo: você está criando um documento mostrando como funciona o comando de instalação de bibliotecas ("install.packages(ggplot)", por exemplo). Se você não alterar o *eval* para *FALSE*, sempre que você *renderizar* seu documento ele fará a instalação da biblioteca. É o que queremos? Imagino que não...  
+1. *include*: Definido por padrão como *TRUE*, define se o trecho de código, **que será executado** apresentará no texto do documento seus resultados, mensagens e avisos (*warnings*); Também parece sem sentido? Vamos a um exemplo: Queremos, em algum momento salvar um determinado aquivo em *.csv*. Mas não precisamos ter isso no exposto em nosso texto final, então podemos usar essa opção e, sem precisar mexer em várias opções (*hecho*, *warning*, etc) já desabilitar qualquer tipo de mensagem relacionado a essa tarefa ao mesmo tempo que grantimos que a mesma seja executada.  
+1. *fig.width*: Vimos na \autoref{DetalhesR} que podemos inserir um gráfico direto ao nosso documento sem a necessidade de salva-lo como uma figura e depois inseri-lo ao texto. Contudo, como faríamos para ajustar o tamanho do gráfico? Para isso serve as opções *fig.width* e *fig.heigth*. Essas opções devem ser seguidas de um valor numérico (exemplo, *fig.width = 7*) representando o tamanho de largura/altura da figura em *inches*;  
 
 ### Inserir *plot*  {#InserirPlot}
 
-Perceba que o segundo trecho de código do documento padrão é um simples comando ```plot(pressure)```. Isso, por sí só, faz com que o *plot* realizado seja incluido no documento final ao *renderizá-lo*.  
+Perceba que o segundo trecho de código do documento padrão é um simples comando ```plot(pressure)```. Isso, por sí só, faz com que o *plot* realizado seja incluído no documento final ao *renderizá-lo*.  
 
 #### Inserir legenda ao *plot*  {#InserirLegendaPlot}  
 
@@ -166,19 +168,21 @@ plot(c(1,2,3), c(3,2,1))
 plot(c(1,2,3), c(3,2,1))
 ```  
 
-### Exercício (opções de codigo R)  
+Veremos mais opções de configuração dos gráficos na seção \ref{crossRef}  
 
-1. No *Rmd* criando anteriormente, altere os parâmetros dos trechos de código. Quais são os rsultados das alterações realizadas?  
+#### Exercício (opções de codigo R)  
+
+1. No *Rmd* criando anteriormente, altere os parâmetros dos trechos de código. Quais são os resultados das alterações realizadas?  
 1. Altere o gráfico usando *ggplot*;  
     * Perceba que há que carregar a biblioteca (incluí-lo no trecho de código).  
 
 ### *inline code*
 
-Já vimos como inserir trechos de código no no nosso texto. Uma coisa que não vimos é o chamado *inline code*, que é a possibilidade de escrever um codigo curto (de uma linha) e que terá seu resultado inserido na mesma posição e que se encontra o código.
+Já vimos como inserir trechos de código no nosso texto. Uma coisa que não vimos é o chamado *inline code*, que é a possibilidade de escrever um codigo curto (de uma linha) e que terá seu resultado inserido na mesma posição e que se encontra o código.
 
-Para usá-lo basta usar uma crase (``` ` ```) seguida pela definição da linguagem de programação a ser usada (meste caso, r) e posteriormente o código necessário. Exemplo: ``` ` r length( c(1, 2, 3, 4)) ` ```
+Para usá-lo basta usar uma crase (``` ` ```) seguida pela definição da linguagem de programação a ser usada (meste caso, *r*) e posteriormente, o comando a ser executado. Exemplo: ``` ` r length( c(1, 2, 3, 4)) ` ```
 
-Para que serve? Vamos imaginar que estamos escrevendo um artigo e precisamos dizer a quantidade de dados que usamos. Uma possibilidade (vou chamá-la de tradicional) seria consultar a quantidade de linhas ou o *length* de nossos dados no *R* e escrevê-lo posteriormente no nosso texto. Mas e se nosso dados mudarem? Teremos que fazer isso de novo. Aí é que entra o *inline code*. Com ele bastaria escrever:  
+Para que serve? Vamos imaginar que estamos escrevendo um artigo e precisamos dizer a quantidade de dados que usamos. Uma possibilidade (vou chamá-la de tradicional) seria consultar a quantidade de linhas ou o *length* de nossos dados no *R* e escrevê-lo posteriormente no nosso texto. Mas e se nosso dados mudarem? Teremos que fazer isso de novo. Aí é que entra o *inline code*.  
 
 **Exemplo**:  
 
@@ -188,34 +192,37 @@ Para que serve? Vamos imaginar que estamos escrevendo um artigo e precisamos diz
 
 > Em nossa análise foi realizada a média de `r length( c(1, 2, 3, 4)) ` valores numérico sorteados ao azar, cujo resultado foi de `r mean( c(1, 2, 3, 4)) `;  
 
-## Inserindo tabela
+## Inserindo tabela  
 
-```{r, include = FALSE}
+**TO DO**  
+
+```{r tabela, include=FALSE}
 #write.csv(as.data.frame(c(1,2,3,4)), "texte.csv")
+#pander(head(mtcars))
 ```
 
 ## Inserindo imagem  {#InserindoImagem}
 
 Já vimos como inserir um gráfico gerado direto de um código *R*. Lembra? Isso foi na seção \ref{InserirPlot}. Mas sabemos bem que nem todas as imagens e figuras de nossos documentos e/ou artigos são provenientes do *R*. Então precisamos saber como inseri-las.  
 
-Para fazer isso basta incluir o seguinte código ``` ![](endereco/para/imagem.png)```. A exclamação tem que se mantida. E dentro dos colchetes, podemos escrever a legenda da imagem, quando acharmos pertinente. **Veja a seção \ref{MarkdownConfig} para saber o que é preciso ser modificado na configuração do *Markdown* para que a legenda de imagens sejam usadas.** Não se preocupem... é uma linha que muda tudo!
+Para fazer isso basta incluir o seguinte código ``` ![](endereco/para/imagem.png)```. A exclamação tem que se mantida. E dentro dos colchetes, podemos escrever a legenda da imagem, quando acharmos pertinente. **Veja a seção \ref{MarkdownConfig} para saber o que é preciso ser modificado na configuração do *Markdown* para que a legenda de imagens sejam apresentadas.** Não se preocupem... é uma linha que muda tudo!
 
 Das maiores fontes de erro ao inserir imagens, antecipamos:  
   
 * Caminho para imagem errado[^1];   
 * Nome errado do arquivo;  
-* Falta de parágrafo antes e depois de onde deverá ir a imagem [^2];
+* Falta de parágrafo antes e depois de onde deverá ir a imagem [^2];  
 
-[^1]: Só esse tema vale um capitulo... Mas em resumo, podemos usar um caminha relativo, que considera sempre apartir da pasta de trabalho atual (*Working Directory*); Ou caminho absoluto, que informará todas as pastas desde o diretório "raiz";  
-[^2]: Isso faz parte de algumas ocisas inexplicáveis do *Markdown*... As vezes precisamos dar espaço entre parágrafos para que alguns recursos funcionem. As vezes não.  
+[^1]: Só esse tema vale um capitulo... Mas em resumo, podemos usar um caminho relativo, que considera sempre a partir da pasta de trabalho atual (*Working Directory*); Ou caminho absoluto, que informará todas as pastas desde o diretório "raiz" (não recomendado!);  
+[^2]: Isso faz parte de algumas coisas inexplicáveis do *Markdown*... As vezes precisamos dar espaço entre parágrafos para que alguns recursos funcionem. As vezes não. Nisso a experiencia ajuda bastante.  
 
-## Referência cruzada  
+## Referência cruzada  {#crossRef}
 
-Por referência cruzadas entendemos a possibilidade de referir-se a imágens e seções de texto, sem termos que preocuparmo-nos com seus respectivos números, facilitando **em muito** a edição e a manutenção de nossos textos. Isso pelo fato de ambos serem sempre atualizados segundo a ordem das figuras/seções a cada *renderização*.  
+Por referência cruzadas entendemos a possibilidade de referir-nos a imagens e seções de nosso documento no corpo de nosso texto, sem termos que nos preocupar com seus respectivos números, facilitando **muito** a edição e a manutenção de nossos textos. Isso pelo fato de ambos serem sempre atualizados segundo a ordem das figuras/seções a cada *renderização*.  
 
 ### De gráfico (*plot*)  
 
-Vimos em \ref{InserirPlot} como inserir um gráfico (*plot*) em nosso documento, lembram?  
+Vimos em \ref{InserirPlot} como inserir um gráfico (*plot*) em nosso documento, lembra?  
 
 ```
 \```{r}
@@ -233,9 +240,9 @@ plot(c(1,2,3), c(3,2,1))
 
 Mas como usá-lo em referencia cruzada?  
 
-Para criar referência cruzada com os gráficos criados através do *R*, precisaremos criar uma *label*. A *label*, assim como no caso dos *trechos de código* ( \ref{RLabels} ) deverão se um dientificador único e exclusivo para cada gráfico. Mas a *label* usada, não é a mesma que a do *code-chunk*. Por isso precisamos inserir dentro da *string* da configuração da legenda (`fig.cap`) o comando `\\label{LabelDoGrafico}` onde o texto dentro de chaves serão a *label do gráfico.  
+Para criar referência cruzada com os gráficos criados através do *R*, precisaremos criar uma *label*. A *label*, assim como no caso dos *trechos de código* ( \ref{RLabels} ) deverão se um dientificador único e exclusivo para cada gráfico. Mas a *label* usada, não é a mesma que a do *code-chunk*. Por isso precisamos inserir dentro da *string* da configuração da legenda (`fig.cap`) o comando `\\label{LabelDoGrafico}` onde o texto dentro de chaves serão a *label* do gráfico.  
 
-Por agora só criamos a label do gráfico. Para fazer a referência à esse gráfico em nosso texto, usaremos o comando `\ref{LabelDoGrafico}` onde quisermos referir-nos à figura.  
+Por agora só criamos a *label* do gráfico. Para fazer a referência à esse gráfico em nosso texto, usaremos o comando `\ref{LabelDoGrafico}` onde quisermos referir-nos à figura.  
 
 *Exemplo*:  
 ```
@@ -257,7 +264,7 @@ plot(c(1,2,3,4), c(1,2,3,4))
 
 ### De imagem  
 
-Bom, vimos na seção \ref{InserindoImagem} como inserir uma imagem. Lembram?  
+Vimos na seção \ref{InserindoImagem} como inserir uma imagem. Lembra?  
 
 ``` ![](./caminho/para/imagem.png)```  
 
@@ -285,7 +292,7 @@ O que fizemos até agora foi criar uma *label* para a imagem que queremos refere
 ### De seção  
 
 Quando quisermos fazer referencia a alguma seção (Título, subtítulo, ...), precisaremos criar uma *label* nessa seção, usando o *comando* ``` {#labelsecao} ```, para depois referenciá-la no texto usando ``` \ref{labelsecao} ```.  
-Repare que, para criar a seção, devemos inserir \# antes do texto da *label*. E no comando ```\ref{}``` a label vai sem o \#. Outra opservação importante, não use espaço nas *labels*!  
+Repare que, para criar a seção, devemos inserir \# antes do texto da *label*. E no comando ```\ref{}``` a label vai sem o \#. Outra observação importante, não use espaço nas *labels*!  
 
 **Exemplo**:  
 
@@ -301,7 +308,7 @@ Para inserir nota de roda-pé é muito fácil, e há duas possibilidades para vo
 
 ### Primeira possibilidade  {#op1}
 
-A primeira, que acredito ser a mais simples (mas não necessáriamente, mais organizada, no sentido textual) é inserindo o *comando* ao fim do trecho que deverá conter a nota: 
+A primeira, que acredito ser a mais simples (mas não necessáriamente, mais organizada, no sentido textual) é inserindo `^[]` ao fim do trecho que deverá conter a nota, com o texto dentro dos colchetes. Exemplo: 
 ``` ^[aqui dentro vai o texto da nota] ```  
 
 **Exemplo**:  
@@ -312,21 +319,22 @@ A primeira, que acredito ser a mais simples (mas não necessáriamente, mais org
 
 > Quando lhe disserem que você não consegue, lembre-se que os grandes heróis já ouviram isso e nunca desistiram ^[Frase retirada de: https://www.mundodasmensagens.com/frases-efeito/].  
 
-Porque eu acho que talvez não seja, necessáriamento, a forma mais organizada? Pois imagine que você queira colcoar uma nota de roda-pé ao fim de uma frase que está no meio de um parágrafo. Você terá no seu *Rmd* a nota de roda-pé no meio do parágrafo. E isso pode confundir a algumas pessoas ou dificultar a leitura do paragrafo inteiro (quando não renderizado, claro).  
+Porque eu acho que talvez não seja, necessáriamento, a forma mais organizada? Pois imagine que você queira colocar uma nota de roda-pé ao fim de uma frase que está no meio de um parágrafo. Você terá no seu *Rmd* a nota de roda-pé no meio do parágrafo. E isso pode confundir a algumas pessoas ou dificultar a leitura do paragrafo inteiro (quando não renderizado, claro).  
+
 Não deixe de conferir alguns pontos importantes na seção \ref{RodapeImportante}.  
 
 ### Segunda possibilidade  {#op2}
 
-Outra possibilidade que nos obriga a sermaos mais cuidadosos é inseririndo após o trecho que deva conter a nota, o comando: ``` [^1] ```. Com isso vc está criando a "ancorargem" à nota de roda-pé. **Ou seja, está informando que alí deverá entrar um valor superescrito que estará linkado com a nota de roda-pé**. E para criar a nota, basta colocar em qualquer momento do texto ``` [^1]: ``` seguindo do texto de nota.~~  
+Outra possibilidade que nos obriga a sermos mais cuidadosos é inserindo, após o trecho que deva conter a nota: ` [^1] `. Com isso vc está criando a "ancorargem" à nota de roda-pé. **Ou seja, está informando que alí deverá entrar um valor superescrito que estará linkado com a nota de roda-pé**. E para criar a nota, basta colocar em qualquer momento do texto ``` [^1]: ``` seguindo do texto de nota.  
 
 **Exemplo**:  
 
-> Quando lhe disserem que você não consegue, lembre-se que os grandes heróis já ouviram isso e nunca desistiram ``` [^1] ```.  
+> A vida não se acaba quando deixamos de viver e sim quando deixamos de buscar algo nela!  ``` [^1] ```.  
 > ``` [^1]: ``` Frase retirada de: https://www.mundodasmensagens.com/frases-efeito/  
 
 **Resultado**:
 
-> Quando lhe disserem que você não consegue, lembre-se que os grandes heróis já ouviram isso e nunca desistiram [^3].  
+> A vida não se acaba quando deixamos de viver e sim quando deixamos de buscar algo nela!  [^3].  
 
 [^3]: Frase retirada de: https://www.mundodasmensagens.com/frases-efeito/  
 
@@ -340,9 +348,10 @@ Outra possibilidade que nos obriga a sermaos mais cuidadosos é inseririndo apó
 
 ## Referencias bibliográficas  
 
-Aqui começamos a fazer a transição de um simples relatória a um potencial artigo... Vamos incluir bibliografia!  
+Aqui começamos a fazer a transição de um simples relatório a um potencial artigo... Vamos incluir bibliografia!  
 
-Qualquer gerenciador de bibliografias (**Zotero**, **Mendeley**, etc) possibilitam extrair os artigos no formato *.bib*. Se vocês selecionarem os artigos/livros que vão usar e exportá-los como *.bib* e abri-los em um editar do texto^[editor de texto não é a mesma coisa que Word! Abra com um **notepad**], poderá ver algo assim:
+Qualquer gerenciador de bibliografias (**Zotero**, **Mendeley**, etc) possibilita extrair os artigos no formato *.bib*. Se vocês selecionarem os artigos/livros que vão usar e exportá-los como *.bib* e abri-los em um editor do texto^[editor de texto não é a mesma coisa que Word! Abra com um **notepad**], poderá ver algo assim:  
+
 ```
 @article{Akcakaya2009,
 abstract = {The World Conservation Union (IUCN) defined a set of categories for conservation status sup- ported by decision rules based on thresholds of parameters such as distributional range, population size, pop- ulation history, and risk of extinction. [...] We propose a method of dealing with uncertainty that can be applied to the current IUCN criteria without altering the rules, thresholds, or intent of these criteria. Our method propagates the uncertainty in the input parameters and assigns the evaluated spe- cies either to a single category (as the current criteria do) or to a range of plausible categories, depending on the nature and extent of uncertainties.},
@@ -361,18 +370,16 @@ volume = {14},
 year = {2009}
 }
 ```  
+
 Uma vez que tenhamos exportado os artigos a serem usados para o formato *.bib* e com o arquivo na mesma pasta onde estamos trabalhando nosso texto ^[Caso o arquivo esteja em uma pasta diferentes, será necessário informar o cominho à pasta], precisaremos informar ao *Markdown* que vamos usar a opção de bibliografia e qual será o arquivo *.bib* a ser usado. Para isso, adicionaremos à confirguração do *RMarkdown* a seguinte linha: `bibliography: Referencias.bib`.  
 
 Repare como está a configuração deste documento que vc está lendo:
 ```
 ---
 title: "Relatorios com RMarkdown"
-date: "`r format(Sys.time(), '%d-%m-%Y')`"
+date: 12/02/2019
 output:
-  pdf_document:
-    includes:
-      in_header: ../Versionamento/standart.tex
-    number_sections: yes
+  pdf_document: default
   word_document: default
 bibliography: Referencias.bib
 ---
@@ -391,21 +398,28 @@ ou
 
 Legal. Até agora, já adicionamos nossa base de dados de referencias, fizemos a citação. Mas como fica a bibliografia?  
 
-Basta adicionarmos um capitulo `## References` (com qualque níve de hierarquia) e pronto! O *RMarkdown* já entenderá que nessa seção deverão constar todos e apenas aquelas referencias que constan em nosso *.bib* que tenham sido usadas. E por mais que usemos mais de uma citação para um mesmo artigo, só aparecerá uma referencia... Vai querer continuar usando o Word?  
+Basta adicionarmos um capitulo `## References` (com qualque níve de hierarquia) e pronto! O *RMarkdown* já entenderá que nessa seção deverão constar todos e apenas aquelas referencias que constan em nosso *.bib* que tenham sido usadas. E por mais que usemos mais de uma citação para um mesmo artigo, só aparecerá uma referencia...  
+
+> E aí: Vai querer continuar usando o Word?  
 
 Ha, pelo fato de o *.bib* se um doc de texto, o mesmo pode ser versionado. Outros colaboradores poderão adicionar novas referencias e fazer citações e tudo será controlado por versionamento...  
 
-**A qualidade da referencia se derá conforme a qualidade dos dados disponíveis e organizados no *.bib*. Ou seja, se seu gerenciador de referencias não foi capaz de identificar algumas informações do artigo, os mesmos estarão ausentes.**
+**A qualidade da referencia se derá conforme a qualidade dos dados disponíveis e organizados no *.bib*. Ou seja, se seu gerenciador de referencias não foi capaz de identificar algumas informações do artigo, os mesmos estarão ausentes.**  
 
 ## Dando cara de artigo;  
 
 Adicionando autor e abstract:
+Basta adicionar na área de configuração do *Markdown*:
 ```
 author:
 - Felipe S. M. Barros
 abstract: |
   Aqui vai o abstract
 ```  
+
+Você pode adicionar quantos autores quiser;  
+
+** FALTA VER COMO INFORMAR UNIVERSIDADE DOS AUTORES **  
 
 ## Notações matemáticas  
 
@@ -435,6 +449,8 @@ Escrevendo em bloco, seria assim: `$$\sum_{n} = \pi + \sigma^2$$`
 
 Escrevendo em bloco, seria assim: $$\sum_{n} = \pi + \sigma^2$$  
 
+Para mais informações sobre notações matemáticas em Latex, visite [este site](https://en.wikibooks.org/wiki/LaTeX/Mathematics)  
+
 ## Configuração Markdown  {#MarkdownConfig}
 
 Há vários elementos de configuração do *RMarkdown*, que poderão ser buscados pelas referencias na seção \ref{masInfos}.  
@@ -452,9 +468,7 @@ output:
   pdf_document:
     toc: true
     toc_depth: 4
-
 ```  
-
 
 ## Mais infos  {#masInfos}
 
@@ -463,5 +477,12 @@ Markdown é um universo, juntando com as possibilidades de programaçao do R, fi
 Se quiser algo realmente interessante, veja o livro sobre [*RMarkdown*](https://bookdown.org/yihui/rmarkdown/)  
 
 Mas tem tbm vários artigos de blogs, dos quais, [esse aqui](https://jozefhajnala.gitlab.io/r/r909-rmarkdown-tips/) é bem interessante.  
+
+* https://sebastiansauer.github.io/writing_tools/  
+
+Para mais informações sobre o [RMarkdown, clique aqui](http://rmarkdown.rstudio.com).  
+Ou até mesmo esse [super livro](https://bookdown.org/yihui/rmarkdown/).  
+
+Ou [esse artigo de blog](https://www.r-bloggers.com/r-markdown-3-sources-of-reproducibility-issues-and-options-how-to-tackle-them/)
 
 ## References {#refs}

@@ -1,7 +1,7 @@
 ---
 title: "Relatorios com RMarkdown"
 author:
-- Felipe S. M. Barros
+  - Felipe S. M. Barros
 date: "`r format(Sys.time(), '%d-%m-%Y')`"
 output:
   pdf_document:
@@ -10,8 +10,6 @@ output:
     number_sections: yes
   word_document: default
 bibliography: Referencias.bib
-abstract: 
-  Foi elaborado um texto, bla, bla, bla...
 ---
 
 # Elaboração de relatórios com RMarkdown  
@@ -194,11 +192,46 @@ Para que serve? Vamos imaginar que estamos escrevendo um artigo e precisamos diz
 
 ## Inserindo tabela  
 
-**TO DO**  
+Outro elemento muito importante a ser inserido nos relatórios são as tabelas. Há algumas formas de adicionar os *dataframes* ou *tibles* ao nosso relatório de forma automática e configurada. Vamos usar o pacote `knitr`.  
 
-```{r tabela, include=FALSE}
-#write.csv(as.data.frame(c(1,2,3,4)), "texte.csv")
-#pander(head(mtcars))
+### Knitir {#TableKnitr}  
+
+Para adicionar nosso *dataframe* ao relatório, vamos usar a função `kable()`, do pacote `knitr`, da seguinte forma:  
+
+**Exemplo**:  
+
+```
+\```{r InserindoTabela}
+knitr::kable(head(mtcars))
+\```
+```  
+  
+**Resultado**:  
+  
+```{r InserindoTabela2, echo=FALSE}
+knitr::kable(head(mtcars))
+```
+
+Incentivo a vocês a darem uma olhada no *help* da função `kable`, para identificarem os parâmetros de configuração que afetarão diretamente o *layout* final da tabela.  
+
+* [pander](http://rapporter.github.io/pander/)  
+* [xtable](https://cran.r-project.org/web/packages/xtable/index.html)  
+* [comparativo](http://rapporter.github.io/pander/)  
+  
+#### Adicionando titulo
+
+**Exemplo**:  
+
+```
+\```{r}
+knitr::kable(head(mtcars), caption="Analise dos carros.")
+\```
+```
+  
+**Resultado**:  
+
+```{r, echo=FALSE}
+knitr::kable(head(mtcars), caption="Analise dos carros.")
 ```
 
 ## Inserindo imagem  {#InserindoImagem}
@@ -255,7 +288,7 @@ plot(c(1,2,3,4), c(1,2,3,4))
 
 *Resultado*:  
 
-```{r s, fig.cap = "\\label{fig:plotTest}Gráfico de dispersão entre as variáveis x e y.", fig.height=4, fig.width=4}
+```{r, fig.cap = "\\label{fig:plotTest}Gráfico de dispersão entre as variáveis x e y.", fig.height=4, fig.width=4}
 plot(c(1,2,3,4), c(1,2,3,4))
 ```
 
@@ -301,6 +334,34 @@ Repare que, para criar a seção, devemos inserir \# antes do texto da *label*. 
 **Resultado**:  
 
 > Ver a seção \ref{InserindoImagem} para saber mais informações 
+
+### De tabela  
+
+Assim como nos casos anteriores, precisaremos adicionar uma *label* à nossa tabela. Faremos isso adicionarndo `\\label{labelDaTabela}` **dentro da tring do título**. Estamos usando `\` duas vezes para que a mesma não seja confundida com o título. **Fique atento pois essa é uma fonte de erro bem comum**.  
+
+**Exemplo**:  
+
+```
+\```{r}
+knitr::kable(mtcars[1:3,1:3], align='c', caption="Analise dos carros. \\label{tabelamtcars} ")
+\```
+```
+  
+**Resultado**:  
+
+```{r}
+knitr::kable(mtcars[1:3,1:3], align='c', caption="Analise dos carros. \\label{tabelamtcars} ")
+```
+
+E, como você já deve imagina, para fazer referencia à tablea, basta usar `\autoref{labelDaTable}`
+
+**Exemplo**:  
+
+> Na `\autoref{tabelamtcars}` apresentamos todos os dados usados.  
+
+**Resultado**:  
+
+> Na \autoref{tabelamtcars} apresentamos todos os dados usados.  
 
 ## Nota de roda-pé
 
@@ -406,10 +467,10 @@ Ha, pelo fato de o *.bib* se um doc de texto, o mesmo pode ser versionado. Outro
 
 **A qualidade da referencia se derá conforme a qualidade dos dados disponíveis e organizados no *.bib*. Ou seja, se seu gerenciador de referencias não foi capaz de identificar algumas informações do artigo, os mesmos estarão ausentes.**  
 
-## Dando cara de artigo;  
+## Adicionando autor, abstract e afiliações  
 
-Adicionando autor e abstract:
-Basta adicionar na área de configuração do *Markdown*:
+Para adicionar autor e abstract teremos que adicionar à área de configuração do *RMarkdown*:
+
 ```
 author:
 - Felipe S. M. Barros
@@ -419,7 +480,7 @@ abstract: |
 
 Você pode adicionar quantos autores quiser;  
 
-** FALTA VER COMO INFORMAR UNIVERSIDADE DOS AUTORES **  
+**FALTA VER COMO INFORMAR UNIVERSIDADE DOS AUTORES**  
 
 ## Notações matemáticas  
 
@@ -476,13 +537,11 @@ Markdown é um universo, juntando com as possibilidades de programaçao do R, fi
 
 Se quiser algo realmente interessante, veja o livro sobre [*RMarkdown*](https://bookdown.org/yihui/rmarkdown/)  
 
-Mas tem tbm vários artigos de blogs, dos quais, [esse aqui](https://jozefhajnala.gitlab.io/r/r909-rmarkdown-tips/) é bem interessante.  
-
-* https://sebastiansauer.github.io/writing_tools/  
+Mas tem tbm vários artigos de blogs, dos quais, [esse aqui](https://jozefhajnala.gitlab.io/r/r909-rmarkdown-tips/) ou [esse](https://sebastiansauer.github.io/writing_tools/) são bem interessantes.  
 
 Para mais informações sobre o [RMarkdown, clique aqui](http://rmarkdown.rstudio.com).  
 Ou até mesmo esse [super livro](https://bookdown.org/yihui/rmarkdown/).  
 
-Ou [esse artigo de blog](https://www.r-bloggers.com/r-markdown-3-sources-of-reproducibility-issues-and-options-how-to-tackle-them/)
+Ou [esse artigo de blog.](https://www.r-bloggers.com/r-markdown-3-sources-of-reproducibility-issues-and-options-how-to-tackle-them/)
 
 ## References {#refs}

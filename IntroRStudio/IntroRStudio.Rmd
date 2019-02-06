@@ -1,0 +1,51 @@
+---
+title: "Introdução ao RSTudio"
+author:
+  - Felipe S. M. Barros
+date: "`r format(Sys.time(), '%d-%m-%Y')`"
+output:
+  pdf_document:
+    includes:
+      in_header: ../Versionamento/standart.tex
+    number_sections: yes
+  word_document: default
+---
+
+# Introdução ao RStudio  
+
+> Where does your analysis live?
+> What is real?  
+
+## O RStudio {#rstudio}  
+
+O *RStudio* é uma *IDE* (Ambiente integrado de desenvolvimento em tradução livre de *Integrated Development Environment*). Ele busca facilitar o processo de desenvolvimento (de uma análise, de uma função, ...) articulando vários elementos importantes a esse processo.  
+
+Vamos ver algumas coisas que nos permitirá exlorar o máximo desse ambiente, e desenvolver boas práticas de desenvolvimento.  
+
+### Projetos  
+
+Uma coisa que poucos sabem ou utilizam é que o RStudio permite trabalharmos com projetos. A criação de um projeto se faz pertinente por facilitar a organização do que estamos fazendo. Para criar um projeto basta ir em "Arquivos" e clicar em "Novo projeto" (*File>New Project*).  
+
+Na janela que se abre ( \autoref{newproj} ) poderemos escolhe entre criar o projeto em uma nova pasta ou em uma pasta já existente.  
+  
+![Criando novo projeto no RStudio \label{newProj} ](./img/rstudioProject1.png){ width=60% }  
+
+
+É importante tomar cuidado com os nomes que escolhemos às nossas pastas. Não é uma boa prática dar nome com espaço ou "caracteres especiais" (ç, ~, `, etc). 
+
+Uma vez criado o seu projeto, você poderá acessá-lo por "Arquivos" e em "Abrir Projetos" (*File>Open Project*). Dessa forma, vc poderá mudar de um projeto a outro e o *RStudio* automaticamente definirá o *Working Directory* correto, sem vc ter que usar o comando `setwd("c:/Exemplo/Projeto")`. Isso além de sempre abrir junto os scripts associados ao projeto em questão.  
+
+### Paths and directories
+
+Com o fato de trabalharmos com projetos, podemos adotar caminhos relativos (*relative paths*) aos nossos dados. Isso é importante pois, denpendendo do Sistema Operativo, (Mac/Linux/Windows) a estrutura do caminho absoluto (*absolute path*) muda bastante. Isso talvez não seja importante, caso só você esteja trabalhando com suas análises. Mas quando um outro colaborador vai te ajudar, essa questão pode até inviabilizar a reproducibilidade do seus códigos.  
+
+Mas os projetos não resolvem tudo:
+Em Linux e Mac, se escreve os caminhos com \, quanto no Windows usa-se /. O *R* funciona com ambos. Mas temos que ter cuidado pois / para o *R* tem outro significado. Por este motivo, sempre que estiver trabalhando com caminhos e precisar o /, use sempre dois:
+
+**Exemplo**:  
+
+> `c://Exemplo//projeto`
+
+That makes life frustrating, so I recommend always using the Linux/Mac style with forward slashes.
+
+> Absolute paths (i.e. paths that point to the same place regardless of your working directory) look different. In Windows they start with a drive letter (e.g. C:) or two backslashes (e.g. \\servername) and in Mac/Linux they start with a slash “/” (e.g. /users/hadley). **You should never use absolute paths in your scripts, because they hinder sharing: no one else will have exactly the same directory configuration as you.**

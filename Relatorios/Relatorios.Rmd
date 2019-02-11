@@ -1,5 +1,5 @@
 ---
-title: "Relatorios com RMarkdown"
+title: "Elaboração de relatórios com RMarkdown"
 author:
   - Felipe S. M. Barros
 date: "`r format(Sys.time(), '%d-%m-%Y')`"
@@ -76,9 +76,9 @@ Cada trecho de código, sempre que estiverem dentro da área delimitada para cod
 
 A qualquer momento você pode **renderizar** o documento o transofmrado em *HTML*, *PDF* ou *Doc*, usando o botão *Knit*. E nesse menu que podemos mudar o formato final do documento, caso seja necessário.  
 
-### Exercicio I (alterando formato *output*)  {#ExI}
+### Exercício I (alterando formato *output*)  {#ExI}
   
-1. Criar um *Rmarkdown* e executar-lo sem modificar nada;  
+1. Criar um documento *Rmarkdown* e executar-lo sem modificar nada;  
     * Perceba como está a área de configuração do seu *.Rmd*;  
 1. Execute-o novamente, mas dessa vez alterando o formato final pelo menu do *Knit* ( \autoref{KnitMenu} );  
     - Veja novamente a área de configuração do *Rmd*. O que mudou? 
@@ -110,7 +110,7 @@ Outros elementos importantes para formatação de texto são:
 ### Exercício II (Sintaxe markdown)  
   
 1. Colocar todo o primeiro parágrado como riscado;
-1. Colcoar algumas paravras em **negrito**;  
+1. Colocar algumas paravras em **negrito**;  
 1. Colocar outras palavras em *intálico*;  
 1. Alterar a hierarquia dos títulos;  
 1. Cria um novo título de primeira hierarquia;  
@@ -407,7 +407,7 @@ Outra possibilidade que nos obriga a sermos mais cuidadosos é inserindo, após 
     * O valor numérico dentro do colchete não pode ser repetido (ou usado para outra nota diferente);  
     * O valor numérico dentro do colchete não precisa representar a ordem de aparição das notas! Isso facilita em muito por não exigir reescrever todos os valores de nota de roda-pé subsequentes a uma nota removida;  
 
-## Referencias bibliográficas  
+## referências bibliográficas  
 
 Aqui começamos a fazer a transição de um simples relatório a um potencial artigo... Vamos incluir bibliografia!  
 
@@ -457,15 +457,15 @@ Caso queiramos adicionar mais refencias:
 ou  
 `@Akcakaya2009, @Akcakaya2009` = @Akcakaya2009, @Akcakaya2009  
 
-Legal. Até agora, já adicionamos nossa base de dados de referencias, fizemos a citação. Mas como fica a bibliografia?  
+Legal. Até agora, já adicionamos nossa base de dados de referências, fizemos a citação. Mas como fica a bibliografia?  
 
-Basta adicionarmos um capitulo `## References` (com qualque níve de hierarquia) e pronto! O *RMarkdown* já entenderá que nessa seção deverão constar todos e apenas aquelas referencias que constan em nosso *.bib* que tenham sido usadas. E por mais que usemos mais de uma citação para um mesmo artigo, só aparecerá uma referencia...  
+Basta adicionarmos um capitulo `## References` (com qualque níve de hierarquia) e pronto! O *RMarkdown* já entenderá que nessa seção deverão constar todos e apenas aquelas referências que constan em nosso *.bib* que tenham sido usadas. E por mais que usemos mais de uma citação para um mesmo artigo, só aparecerá uma referencia...  
 
 > E aí: Vai querer continuar usando o Word?  
 
-Ha, pelo fato de o *.bib* se um doc de texto, o mesmo pode ser versionado. Outros colaboradores poderão adicionar novas referencias e fazer citações e tudo será controlado por versionamento...  
+Outra coisa, pelo fato de o *.bib* se um doc de texto, o mesmo pode ser versionado. Outros colaboradores poderão adicionar novas referências e fazer citações e tudo será controlado por versionamento...  
 
-**A qualidade da referencia se derá conforme a qualidade dos dados disponíveis e organizados no *.bib*. Ou seja, se seu gerenciador de referencias não foi capaz de identificar algumas informações do artigo, os mesmos estarão ausentes.**  
+**A qualidade da referencia se derá conforme a qualidade dos dados disponíveis e organizados no *.bib*. Ou seja, se seu gerenciador de referências não foi capaz de identificar algumas informações do artigo, os mesmos estarão ausentes.**  
 
 ## Adicionando autor, abstract e afiliações  
 
@@ -514,7 +514,7 @@ Para mais informações sobre notações matemáticas em Latex, visite [este sit
 
 ## Configuração Markdown  {#MarkdownConfig}
 
-Há vários elementos de configuração do *RMarkdown*, que poderão ser buscados pelas referencias na seção \ref{masInfos}.  
+Há vários elementos de configuração do *RMarkdown*, que poderão ser buscados pelas referências na seção \ref{masInfos}.  
 
 ### Numerar as seções/capítulos  
 

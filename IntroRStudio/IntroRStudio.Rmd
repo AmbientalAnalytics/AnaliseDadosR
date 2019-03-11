@@ -125,4 +125,4 @@ Caso acredite sem pertinente, desabilite a opção do *RStudio* que salva o ambi
 
 ## Help
 
-![](./img/Help.png)
+![](./img/Help.png)  

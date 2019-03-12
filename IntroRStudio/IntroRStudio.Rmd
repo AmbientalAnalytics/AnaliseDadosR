@@ -58,13 +58,6 @@ Em resumo, a ideia é que suas análises residam nos scripts. E que sempre ao ex
 
 E em se tratando de fluxo de trabalho entre pares, o que é muito comum hoje em dia, começam a surgir algumas boas práticas. Vamos a elas:
 
-### Comente seu código!  
-
-O R, assim como outras linguagens de programação possui um caracter reservado para informar ao console o que não deverá ser executado. No caso do R, o caracter é `#`;
-Tudo o que estiver à direita do `#` não será interpretado pelo R. Por isso, use e abuse do `#` para escrever seus comentários;  
-
-> com o tempo você vai perceber como escrever comentários de forma "eficiente", ou seja, escrevendo o que realmente importa. Isso é extremamente subjetivo e dependerá também do conhecimento das pessoas com as quais vocês estão colaborando.  
-
 Se você já é usuário de R, já deve ter visto em outros *Scripts* os seguintes comandos:  
 1. `setwd()` ;  
 1. `rm(list=ls())`;  
@@ -122,6 +115,13 @@ Caso acredite sem pertinente, desabilite a opção do *RStudio* que salva o ambi
 ## R para ciencia de dados  
 
 ![](./img/data-science.png)  
+
+### Comente seu código!  
+
+O R, assim como outras linguagens de programação possui um caracter reservado para informar ao console o que não deverá ser executado. No caso do R, o caracter é `#`;
+Tudo o que estiver à direita do `#` não será interpretado pelo R. Por isso, use e abuse do `#` para escrever seus comentários;  
+
+> com o tempo você vai perceber como escrever comentários de forma "eficiente", ou seja, escrevendo o que realmente importa. Isso é extremamente subjetivo e dependerá também do conhecimento das pessoas com as quais vocês estão colaborando.  
 
 ## Help
 

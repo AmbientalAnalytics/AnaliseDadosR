@@ -59,7 +59,7 @@ Como vocês fariam esse gráfico?
 
 Resposta:
 ========================================================
-Para criar um gráfico de dispersão no R, basta usar a função `plot()` e, dentro do parêntesis, informar a coluna a ser inserida no eixo X e a coluna do eixo Y:
+Para criar um gráfico de dispersão no R, basta usar a função `plot()` e, dentro do parênteses, informar a coluna a ser inserida no eixo X e a coluna do eixo Y:
 ```{r}
 plot(mpg$hwy, mpg$displ)
 ```
@@ -80,7 +80,7 @@ Breve exemplo II
 
 Como usar o ggplot? I
 ========================================================
-O `ggplot` trabalha com camadas. A primeira que criamos é a base do gráfico, onde informamos que datos serão usados (neste caso, `mpg`):  
+O `ggplot` trabalha com camadas. A primeira que criamos é a base do gráfico, onde informamos que dados serão usados (neste caso, `mpg`):  
 `ggplot(data = mpg)`  
 
 A essa camada base se adicionam outras camadas e, por isso, se usa o `+` após cada expressão;  
@@ -99,9 +99,9 @@ ggplot(data = mpg) +
 
 Como alterar a estética (cor por clase)?
 ========================================================
-Vamos melhorar o gráfico? Vamos agregar outras variáveis para melhorar o gráfico, torna-lo mais informativo.  
+Vamos melhorar o gráfico? Vamos agregar outras variáveis para melhorar o gráfico, torná-lo mais informativo.  
 
-Vamos fazer com que os pontos sejam coloridos emffunção da variável classes de carro.  
+Vamos fazer com que os pontos sejam coloridos em função da variável classes de carro.  
 ```{r, eval = FALSE}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, colour = class))
@@ -180,7 +180,7 @@ ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy, color = as.factor(cyl)))
 ```  
 
-Uma variável para vários parametros estéticos
+Adicionando mais variáveis aos gráfico
 ========================================================
 Podemos adicionar uma quarta variável ao nosso gráfico, como no exemplo:  
 
@@ -217,14 +217,6 @@ ggplot(data = mpg) +
   geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv))
 ```
 
-Gráficos com mais de uma geometria:
-============================================================
-Como o gplot` trabalha com camadas, podemos agregar diferentes geometrias a um mesmo gráfico.  
-**Como você imagina que possamos fazer isso?**  
-
-Exemplo:  
-- Como podemos fazer para adicionar ao gráfico de dispersão uma camada mais com o `smooth` mostrando a tendencia suavizada e a variação?
-
 Gráficos com mais de uma geometría II:
 ============================================================
 Perceba que estamos repetindo alguns elementos estéticos...  
@@ -239,7 +231,7 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 
 Gráficos com mais de uma geometría III:
 =============================================================
-E se quisermos que os ponos estejam relacionados a classe de carros?
+E se quisermos que os pontos tenham cores relacionados às classes de carros?
 **Atenção:** Só os pontos!  
 **Como ficaria o código para fazer dito gráfico?**  
 
@@ -302,7 +294,7 @@ Barplot e Histogram
 ================================================================
 Os **gráficos de barra**, **boxplot** e **histograma** são exemplos interessantes de como o `ggplot` nos facilita a vida.  
 
-Ao usarmos as geometrias `geom_bar()`, `geom_boxplot()` ou `geom_hist()`, o `gplot` faz a contagem ou a análise de frequencia automaticamente, antes de apresentar o gráfico.  
+Ao usarmos as geometrias `geom_bar()`, `geom_boxplot()` ou `geom_hist()`, o `ggplot` faz a contagem ou a análise de frequencia automaticamente, antes de apresentar o gráfico.  
 Assim como a geometria `geom_smooth()`, que ajusta uma regressão.  
 
 ```{r}
@@ -329,9 +321,9 @@ ggplot(data = mpg) +
   geom_bar(mapping = aes(x = class, fill = class))
 ```
 
-Barplot com mais de duas variáveis
+Barplot com duas variáveis
 ==================================================================
-Como poderiamos fazer para, em um `Baplot`, identificar a proporção relacionada a uma segunda variavel categórica?  
+Como poderiamos fazer para, em um `barplot`, identificar a proporção relacionada a uma segunda variavel categórica?  
 
 Exemplo: gráfico de barra com classes de carro no eixo X, mas com as cores em função  do tipo de motor (dianteiro, traseiro ou quatro rodas)? 
 ```{r, eval=FALSE}
@@ -396,7 +388,7 @@ ggsave("meu_grafico.pdf")
 
 Resumo
 ===================================================================
-De forma geral, vimos que `ggplot` tem uma sintaxis específica para elaborar gráficos.
+De forma geral, vimos que `ggplot` tem uma sintaxe específica para elaborar gráficos.
 Podemos resumir dessa forma:
 ```{r, eval=FALSE}
 ggplot(data = <DATA>) + 
@@ -416,7 +408,9 @@ Resumo II
 Dados de diamantes
 ================================================================
 Vamos fazer alguns exercícios com dados de diamantes?  
-O ggplot vem com um conjunto de dados sobre diamantes...
+O ggplot vem com um conjunto de dados sobre diamantes...  
+Para saber de que se trata cada variável (coluna), basta executar `?diamonds'.  
+
 Ou, caso tenha algum conjunto de dado que queira experimentar, fique à vontade!
 ```{r, eval = FALSE}
 head(diamonds)

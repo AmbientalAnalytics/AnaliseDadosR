@@ -10,7 +10,7 @@ Programa
 ========================================================
 Nesta aula vamos trabalhar com algumas funções para manipulação e organização de dados.  
 Vamos usar a biblioteca *tidyr* que faz parte das bibliotecas do chamado *tidyverse*.  
-Caso tenha interesse em conhecer os fundamentos técnicos, veja [este articulo]( http://www.jstatsoft.org/v59/i10/paper).  
+Caso tenha interesse em conhecer os fundamentos técnicos, veja [este artigo]( http://www.jstatsoft.org/v59/i10/paper).  
 ```{r}
 # install.packages("tidyr")
 library(tidyr)
@@ -304,14 +304,73 @@ acidentesData %>%
   ggplot(aes(x = DIA.SEMANA, fill = NovaVariavel)) + geom_bar()
 ```  
 
-Exercicios de revisão
-================================================================
-Ainda com esse biblioteca que estamos usando, há uma conjunto de dados da Organização Mundial da Saúde (*WHO*), com dados de tuberculose.  
+Modelo CO2 INPE-EM
+===============================================================
+[INPE-EM TOTAL RESULTS](http://dados.gov.br/dataset/inpe-em)  
+[MODEL NAME = r2019](http://inpe-em.ccst.inpe.br/sobre/)  
 
-É um bom exemplo de dados: há bastante informação a ser manipulada ou transformada.
+- Vegetation Removal = vr  
+- Secondary Vegetation = sv  
+- (OBS: area in hecatares, CO2 in MtCO2(= 10 12 g), other gases in CO2Eq)  
 
-- Como faria para converter as variaveis (*new_sp_m014*, *new_ep_m014*, *new_ep_f014*, ...) em categorias e não variáveis;  
+As estimativas de emissão de **2ª ordem buscam representar com maior realismo a taxa de liberação do carbono para a atmosfera ao longo do tempo** – levando em consideração que uma parte da biomassa é transformada em produto madeireiro e que outra parte não será queimada, sofrendo decomposição gradual no terreno (acima ou abaixo do solo). 
 
+Nas **estimativas de 1ª Ordem, assume-se liberação instantânea de 100% de carbono existente acima e abaixo do solo**.
+
+Carregando os dados
+===============================================================
 ```{r}
-who
+# install.packages("readxl") # CRAN version
+library(readxl)
+co2 <- read_excel("./dados/inpe_EM_BRAmz_resultados1960-2016.xlsx")
+colnames(co2)
+```
+
+
+Exercícios I
+===============================================================
+Vamos analisar a diferença entre emissão e absorção para as áreas que tiveram vegetação removida (VR)?  
+Vamos fazer com um gráfico de barras:
+- Eixo X: anos;  
+- Eixo Y: Valor de CO2;  
+- Diferencie absorção e emissão pela cor;  
+- Obs: o ggplot não precisará fazer calculo. O valor de CO2 por ano já está calculado.
+
+Exercícios I: solução
+===============================================================
+```{r}
+co2 %>% 
+  gather(SV_CO2_emission, SV_CO2_absorption, key = "CO2", value = "value") %>% 
+  ggplot() + geom_col(aes(x = Year, y = value, fill = CO2))
+```
+
+Exercícios II
+===============================================================
+Vamos analisar como se comporta os modelos de CO2 ao longo do tempo apra as areas que tiveram vegetação removida (VR)? Vamos tentar com um gráfico de linha:  
+- Eixo X: anos  
+- Eixo Y: Valores de CO2  
+- Diferencie as linhas de **primeira** e **segunda** ordem;  
+
+Exercícios II: solução
+===============================================================
+```{r}
+co2 %>% 
+  gather(VR_CO2_1stOrder, VR_CO2_2ndOrder, key = "CO2_Order", value = "value") %>% 
+  ggplot() + geom_line(aes(x = Year, y = value, color = CO2_Order))
+```
+
+Exercícios IV
+===============================================================
+E com relação ao CO2 liquido (net*) de primeira e segunda ordem? Será que diferem ao longo do tempo?  
+Vamos tentar com um gráfico de linha:
+- Eixo X: anos;  
+- Eixo Y: valores de CO2;  
+- Diferencie as linhas de **primeira** e **segunda** ordem;  
+
+Exercícios IV
+===============================================================
+```{r}
+co2 %>% 
+  gather(net_CO2_1rsOrder, net_CO2_2ndOrder, key = "CO2_Liquido", value = "value") %>% 
+  ggplot() + geom_line(aes(x = Year, y = value, color = CO2_Liquido))
 ```

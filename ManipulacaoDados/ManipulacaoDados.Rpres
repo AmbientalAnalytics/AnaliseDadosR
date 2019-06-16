@@ -21,8 +21,8 @@ Três regras de organização de dados
 ========================================================
 Para que o conjunto de dado seja fácil de manipular, necessitamos que:
   
-- Cada variável tenha sua própria coluna;
-- Cada observação tenha sua própria linha;
+- Cada variável seja uma coluna;
+- Cada observação seja uma linha;
 - Cada valor tenha sua própria 'célula';
 
 ![](./img/tidy-1.png)  
@@ -61,11 +61,11 @@ A biblioteca **tydr**, traz várias ferramentas para manipulação de dados.
 E por isso, traz alguns exemplos de dados bem estruturados e não tão bem estruturados assim.  
 Vamos usar os dados que vem com esse pacote para aprender a manipular e organizar os dados. 
 
-Nesse processo, é sempre importante conhecer as tarefas mais comúns na organização:
+Nesse processo, é sempre importante conhecer as tarefas mais comuns na organização:
 
 1. Mudar a estrutura, convertendo variável - valor célula;  
 1. Separar uma variável em diferentes colunas;
-1. Separar uma oobservação em diferentes linhas;
+1. Separar uma observação em diferentes linhas;
 
 Para esses casos vamos usar as funções **gather()** e **spead()**.  
 
@@ -152,10 +152,10 @@ table2
 
 spread(): Resultado
 ==================================================================
-Vamos usar la función **spread()**, a cual necessita dois parâmetros:  
+Vamos usar a função **spread()**, a cual necessita dois parâmetros:  
 
-- O parâmetro *key* deverá informar a columna que contenha os valores que deverão ser transformados em variáveis (neste caso, "type");  
-- O parâmetro *value* deverá informar a columna que contenham os valores relacionados a cada valor transofrmado em variavel (neste caso, "count");
+- O parâmetro *key* deverá informar a coluna que contenha os valores que deverão ser transformados em variáveis (neste caso, "type");  
+- O parâmetro *value* deverá informar a coluna que contenham os valores relacionados a cada valor transofrmado em variavel (neste caso, "count");
 
 ```{r}
 table2 %>%

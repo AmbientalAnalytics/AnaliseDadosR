@@ -33,11 +33,11 @@ Ha, e claro, **ggplot2** para fazer alguns gráficos ;)
 # install.packages("dplyr", dependencies = TRUE)
 library(dplyr)
 
-# Para ocupar datos de vuelos!
+# Para usar os dados de voos!
 # install.packages("nycflights13")
 library(nycflights13)
 
-# para los graficos
+# para os graficos
 library(ggplot2)
 ```  
 
@@ -56,7 +56,7 @@ Antes de começar, vamos dar uma olhada na sintaxe anterior:
 - A sintaxe começa e termina com parenteses para indicar ao **R** que, após executar o comando, o resultado seja apresentado no terminal;  
 - Estamos criando um objeto chamado flights;  
 - A sintaxe "`nycflights13::`" indica ao **R** que estamos usando algum elemento da biblioteca *nycflights13*. Neste caso, o objeto *flights*;  
-- OBS: é muito comum usar essa sintaxe "`libraryName::function()`" quando se pretende usar uma funçãoq ue possui o mesmo nome de uma função de outra biblioteca carregada.  
+- OBS: é muito comum usar essa sintaxe "`libraryName::function()`" quando se pretende usar uma função que, apesar de possuir o mesmo nome, tem comportamento diferentes e estão disponíveis em duas bibliotecas em uso.  
 ```{r, results = FALSE}
 (flights <- nycflights13::flights)
 ```  
@@ -86,7 +86,7 @@ pipe! (%>%)
 =========================================================================
 ![](./img/pipe.jpg)  
 
-Os pipes **%>%** nos primte criar uma cadeia de funções sem termos que criar novos objetos a cada operação.
+Os pipes **%>%** nos permite criar uma cadeia de funções sem termos que criar novos objetos a cada operação.
 
 Com isso, podemos focarnos ao processo de transformação dos dados e não na criação de objetos.  
 
@@ -98,7 +98,7 @@ Se deve ler da esquerda para a direita e de cima para baixo.
 
 filter(): Exercício I
 ==========================================================
-Voltadno ao filtro realizado anteriormente:  
+Voltando ao filtro realizado anteriormente:  
 
 Como faríamos o mesmo procedimento usando **pipe**?:
 
@@ -117,7 +117,7 @@ Perceba que nesses casos, estaremos usando a condicional: **AND**. Ou seja: se q
 ```{r, eval = FALSE}
 flights %>% 
   filter(month == 2, day == 1)
-# OU
+# seria equivalente a
 flights %>% 
   filter(month == 2 & day == 1)
 ```  
@@ -126,7 +126,13 @@ Exercício II: filter()
 ==========================================================
 Como poderíamos fazer para filtrar os voos ocorridos depois de Maio e que tiveram atraso de chegada (*arr_delay*) maior ou igual a 60?  
 
-E como ficaría se quisermos gerar um gráfico onde no eixo X estaríam os meses e as barras mostrando em cores diferentes as diferentes aeroportos de origen de tais aviões?  
+E como ficaría se quisermos gerar um gráfico com esse subset, onde no eixo X estaríam os meses e as barras mostrando em cores diferentes as diferentes aeroportos de origen de tais aviões?  
+
+E se fizessemos a seguinte consulta, que resultado teremos?:  
+```{r, eval = FALSE}
+flights %>% 
+  filter(month == 2 & month == 3)
+```  
 
 Exercício II: solução
 ==========================================================
@@ -140,12 +146,12 @@ flights %>%
   geom_bar(aes(x = month, fill = origin))
 ```  
 
-Exercício II: filter()
+Exercício III: filter()
 ==========================================================
 Como seria o código para termos um gráfico de dispersão entre *arr_delay* (eixo X) e *dep_delay* (eixo Y) dos voos com:  
 - *arr_delay* maior que zero e *dep_delay* maior ou igual a zero;  
 
-Exercício II: solução
+Exercício III: solução
 ==========================================================
 ```{r}
 flights %>% 
@@ -186,14 +192,13 @@ flights %>%
   filter(month %in% c(11, 12))
 ```  
 
-Exercício III: filter() operadores lógicos
+Exercício IV: filter() operadores lógicos
 =============================================================
-Crie um gráfico com a relação dos voos com atraso de saída e de chegada que:  
-- o atraso de chegada ou saida sejam maiores que duas horas;  
-Identificar:  
-Crie um gráfico de barra com a quanttidade de voos para os aeroportos de Houston (IAH o HOU);  
+  
+- Crie um gráfico com a relação dos voos com atraso de saída e de chegada sejam maiores que duas horas;  
+- Crie um gráfico de barra com a quanttidade de voos para os aeroportos de Houston (IAH o HOU);  
 
-Exercício III: solução 1
+Exercício IV: solução
 =============================================================
 ```{r, eval = FALSE}
 flights %>% 
@@ -228,7 +233,7 @@ flights %>%
   arrange(year, month, desc(dep_time))
 ```  
 
-Exercício IV: arrange()
+Exercício V: arrange()
 ===============================================================
 Identifique os voos:  
 - com maior atraso de saída;
@@ -260,7 +265,6 @@ select()
 A função **select()** serve para selecionar um subconjunto de variáveis (colunas) do conjunto de dado usado.  
 Por exemplo, se queremos trabalhar apenas com as variáveis *year*, *day* y *month*:  
 ```{r}
-# select() subset columns
 flights %>% 
   select(year, day, month)
 ```  
@@ -280,7 +284,7 @@ flights %>%
   select(-year:-dep_time)
 ```  
 
-Exercícios V: select()
+Exercícios VI: select()
 ===========================================================
 Como poderíamos selecionar as variáveis:
 - dep_time
@@ -288,7 +292,7 @@ Como poderíamos selecionar as variáveis:
 - arr_time 
 - arr_delay  
 
-Exercícios V: solução
+Exercícios VI: solução
 ===========================================================
 ```{r}
 select(flights, dep_time, dep_delay, arr_time, arr_delay)
@@ -297,7 +301,7 @@ select(flights, dep_time, dep_delay, arr_time, arr_delay)
 mutate()
 =============================================================
 A função **mutate()** permite criar novas colunas que recebrão valores relacionados a uma variável já existente.  
-Essas colunas ficarão sempre no final do data frame (tibble). Por issó, vamos criar um conjunto de dados menor e modificar a coluna **air_time** (tempo de voo) que está em minutos, para horas:  
+Essas colunas ficarão sempre no final do data frame (tibble). Por isso, vamos criar um conjunto de dados menor e modificar a coluna **air_time** (tempo de voo) que está em minutos, para horas:  
 
 ```{r}
 flights_mutate <- select(flights, 
@@ -314,11 +318,11 @@ flights_mutate %>%
 
 mutate() II
 ===========================================================
-Outra função importante é a possibilidade decriar uma nova coluna com base a outra coluna que está sendo criada no mesmo processo. Veja:    
+Outra ponto importante é a possibilidade de criar uma nova coluna com base a outra coluna que está sendo criada no mesmo processo. Veja:    
 ```{r}
 flights_mutate %>% 
   mutate(hours = air_time / 60,
-       speed = distance / hours)
+       speed = distance / hours) # variavel hours acabou de ser criada e sera usada
 ```  
 
 transmute()
@@ -331,16 +335,19 @@ flights_mutate %>%
        speed = distance / hours)
 ```  
 
-Exercício VI: mutate()
+Exercício VII: mutate()
 =======================================================================
-Crie uma nova variável de distnacia convertentdo **distance**, que está en milhas, para Km.  
+Crie uma nova variável de distancia convertentdo **distance**, que está en milhas, para Km.  
+E calcule a valocidade em Km/h.  
 **obs: 1mi = 1.61Km**  
 
-Exercício VI: solução
+Exercício VII: solução
 =======================================================================
 ```{r, eval=FALSE}
 flights %>% 
-  mutate(distanceKm = distance * 1.61) %>% 
+  mutate(distanceKm = distance * 1.61,
+         hours = air_time / 60,
+       speedKMH = distanceKm / hours) %>% 
   select(flight, distance, distanceKm)
 ```  
 
@@ -352,7 +359,7 @@ Ex.: Média de atrasos de saída:
 ```{r}
 # Summarise
 flights %>% 
-  summarise(AtrasoMedio = mean(dep_delay, na.rm = TRUE)) # repare en el na.rm = remove NA
+  summarise(AtrasoMedio = mean(dep_delay, na.rm = TRUE)) # repare no na.rm = remove NA
 ```  
 
 summarize()
@@ -373,7 +380,7 @@ flights %>%
   arrange(desc(AtrasoSaida))
 ```  
 
-group_by + summarize() II
+summarize() + group_by() II
 ========================================================================
 Quando se cria grupo com mais de uma variável, a cada resumo (**summarize()**) se "sobe" um nível do grupo, o que permite realizar cálculos progresivos.  
 Ex.  
@@ -392,7 +399,7 @@ per_day   <- flights %>%
 (per_year  <- summarise(per_month, flights = sum(flights)))
 ```
 
-Exercício VI: summarize() + group_by()
+Exercício VIII: summarize() + group_by()
 ==========================================================================
   
 - Crie um gráfico de linhas com o atraso médio por mês de cada companhia arérea.  
@@ -400,7 +407,7 @@ Exercício VI: summarize() + group_by()
 - Qual é a companhia com o menor número de voos?  
 - Faça um gráfico de linhas com a média de atrasos (chegada ou saida, você escolhe :) por mês?  
 
-Exercício VI: solução 1
+Exercício VIII: solução 1
 ==========================================================================
 ```{r}
 flights %>% 
@@ -410,7 +417,7 @@ flights %>%
   geom_line()
 ```  
 
-Exercício VI: solução 2
+Exercício VIII: solução 2
 ==========================================================================
 ```{r}
 flights %>% 
@@ -419,7 +426,7 @@ flights %>%
   arrange(desc(delay))
 ```  
 
-Exercício VI: solução 3
+Exercício VIII: solução 3
 ==========================================================================
 ```{r}
 flights %>% 
@@ -428,7 +435,7 @@ flights %>%
   arrange(count)
 ```  
 
-Exercício VI: solução 4
+Exercício VIII: solução 4
 ==========================================================================
 ```{r}
 flights %>% 
@@ -438,14 +445,14 @@ flights %>%
   geom_line()
 ```  
 
-Exercícios VII:
+Exercícios IX:
 =======================================
   
 - Cual avião (**tailnum**) tem a maior média de atraso de saída?  
 - Cuais destinos recebem mais voos?  
 - Para cada avião, conte quantos voos tem atrasos menores a 3 horas (lembrese que os atrasos estão em minutos).  
 
-Exercícios VII: solução I
+Exercícios IX: solução I
 =======================================
 ```{r}
 flights %>% 
@@ -454,7 +461,7 @@ flights %>%
   arrange(desc(meanDelay))
 ```  
 
-Exercícios VII: solução
+Exercícios IX: solução II
 =======================================
 ```{r}
 flights %>% 
@@ -463,7 +470,7 @@ flights %>%
   arrange(desc(count))
 ```  
 
-Exercícios VII: solução
+Exercícios IX: solução III
 =======================================
 ```{r}
 flights %>% 
